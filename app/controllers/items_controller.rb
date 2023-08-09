@@ -25,7 +25,7 @@ class ItemsController < ApplicationController
     end
 
     def edit
-      @item = Item.find(params[:id])
+      @item = Item.find(params[:id]) #必要？
     end
 
     def update
@@ -36,6 +36,12 @@ class ItemsController < ApplicationController
         else
             render :edit
         end
+    end
+
+    def destroy
+      @item = Item.find(params[:id])
+      @item.destroy
+      redirect_to root_path
     end
 
     private

@@ -77,5 +77,6 @@
 
 <div class="css">
   <%= link_to "編集する", edit_item_path(@item.id), class: :item__btn %>
+  <%= link_to "削除する", item_path(@item.id), data: { turbo_method: :delete }, class: :item__btn %>
   <%= link_to "一覧へ戻る", root_path, class: :item__btn %>
 </div>
