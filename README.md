@@ -85,8 +85,9 @@
 | product            | string     |                                |
 | release            | date       |                                |
 | route              | string     |                                |
-| get_date           | date       |                                |
+| get_date           | string     |                                |
 | memo               | text       |                                |
+| user_id            | references |                                |
 
 #### Association
 - has_many :tags, through: :tagging
