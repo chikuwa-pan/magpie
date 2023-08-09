@@ -15,11 +15,11 @@
   </div>
   <div>
     <p>コンディション</p>
-    <%#= f.collection_select(:condition_id, Condition.all, :id, :name, {}, {id:"condition"}) %>
+    <%= f.collection_select(:condition_id, Condition.all, :id, :name, {}, {class:"css"}) %>
   </div>
   <div>
     <p>レア度</p>
-    <%#= f.collection_select(:rarity_id, Rarity.all, :id, :name, {}, {id:"rarity"}) %>
+    <%= f.collection_select(:rarity_id, Rarity.all, :id, :name, {}, {class:"css"}) %>
   </div>
   <div>
     <p>型番</p>
