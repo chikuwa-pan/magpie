@@ -76,6 +76,9 @@
 | email              | string     | null: false, unique: true      |
 | encrypted_password | string     | null: false                    |
 
+#### Association
+- has_many :items
+
 ### items
 | Column             | Type       | Options                        |
 | ------------------ | ---------- | ------------------------------ |
@@ -83,13 +86,14 @@
 | condition_id       | integer    |                                |
 | rarity_id          | integer    |                                |
 | product            | string     |                                |
-| release            | date       |                                |
+| release            | string     |                                |
 | route              | string     |                                |
 | get_date           | string     |                                |
 | memo               | text       |                                |
 | user_id            | references |                                |
 
 #### Association
+- belongs_to :user
 - has_many :tags, through: :tagging
 
 

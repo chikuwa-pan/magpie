@@ -10,13 +10,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_08_09_081751) do
+ActiveRecord::Schema[7.0].define(version: 2023_08_09_085436) do
   create_table "items", charset: "utf8mb4", force: :cascade do |t|
     t.string "name", null: false
     t.integer "condition_id"
     t.integer "rarity_id"
     t.string "product"
-    t.date "release"
+    t.string "release"
     t.string "route"
     t.string "get_date"
     t.text "memo"
