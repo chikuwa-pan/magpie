@@ -1,7 +1,38 @@
 <h1>新着アイテム</h1>
 
   <% @items.each do |item| %>
+      <p><%= image_tag item.image, class:"item-box-img" if item.image.attached?%></p>
       <p><%= item.name %></p>
-      <p><%= item.memo %></p>
-    </div>
+      <table>
+        <tbody>
+          <tr>
+            <th>コンディション</th>
+            <td></td>
+          </tr>
+          <tr>
+            <th>レア度</th>
+            <td></td>
+          </tr>
+          <tr>
+            <th>型番</th>
+            <td><%= item.product %></td>
+          </tr>
+          <tr>
+            <th>発売時期</th>
+            <td><%= item.release %></td>
+          </tr>
+          <tr>
+            <th>入手ルート</th>
+            <td><%= item.route %></td>
+          </tr>
+          <tr>
+            <th>入手時期</th>
+            <td><%= item.get_date %></td>
+          </tr>
+          <tr>
+            <th>memo</th>
+            <td><%= item.memo %></td>
+          </tr>
+        </tbody>
+      </table>
   <% end %>
