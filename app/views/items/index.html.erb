@@ -1,7 +1,14 @@
 <h1>新着アイテム</h1>
 
   <% @items.each do |item| %>
-      <%= image_tag item.image.variant(resize: '300x300'), class: "item-box-img" if item.image.attached? %>
+
+    <% if item.image.attached? %>
+      <%= link_to item_path(item) do %>
+        <%= image_tag item.image.variant(resize: '300x300'), class: "item-box-img" %>
+      <% end %>
+    <% end %>
+
+      <%#= image_tag item.image.variant(resize: '300x300'), class: "item-box-img" if item.image.attached? %>
       <p><%= item.name %></p>
       <table>
         <tbody>
