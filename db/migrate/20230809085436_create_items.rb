@@ -5,7 +5,7 @@ class CreateItems < ActiveRecord::Migration[7.0]
       t.integer    :condition_id
       t.integer    :rarity_id
       t.string     :product
-      t.date       :release
+      t.string     :release
       t.string     :route
       t.string     :get_date
       t.text       :memo

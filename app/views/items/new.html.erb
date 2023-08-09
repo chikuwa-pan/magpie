@@ -1,0 +1,45 @@
+    <h3>登録する</h3>
+
+<%= form_with(model: @item, local: true) do |f| %>
+  <div>
+    <p>画像</p>
+    <%= f.file_field :image, id:"item-image" %>
+  </div>
+  <div>
+    <p>名前</p>
+    <%= f.text_field :name, placeholder: "name" %>
+  </div>
+  <div>
+    <p>タグ</p>
+    <%= f.text_field :tag, placeholder: "タグ" %>
+  </div>
+  <div>
+    <p>コンディション</p>
+    <%= f.collection_select(:condition_id, Condition.all, :id, :name, {}, {class:"css"}) %>
+  </div>
+  <div>
+    <p>レア度</p>
+    <%= f.collection_select(:rarity_id, Rarity.all, :id, :name, {}, {class:"css"}) %>
+  </div>
+  <div>
+    <p>型番</p>
+    <%= f.text_field :product, placeholder: "型番" %>
+  </div>
+  <div>
+    <p>発売時期</p>
+    <%= f.text_field :release, placeholder: "発売日" %>
+  </div>
+  <div>
+    <p>入手ルート</p>
+    <%= f.text_field :route, placeholder: "入手ルート" %>
+  </div>
+    <div>
+    <p>入手時期</p>
+    <%= f.text_field :get_date, placeholder: "入手時期" %>
+  </div>
+  <div>
+    <p>memo</p>
+    <%= f.text_area :memo, placeholder: "memo", rows: "10" %>
+  </div>
+  <div><%= f.submit "SAVE" %></div>
+<% end %>
