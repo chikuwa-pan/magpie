@@ -100,7 +100,7 @@
 ### tags
 | Column             | Type       | Options                        |
 | ------------------ | ---------- | ------------------------------ |
-| tag_name           | string     | foreign_key: true              |
+| tag_name           | string     |                                |
 
 #### Association
 - has_many :items, through: :tagging
