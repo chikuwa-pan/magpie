@@ -9,7 +9,7 @@
     <% end %>
 
     <p><%= link_to item.name, item_path(item), class: :card__title %></p>
-    <p><%= item.tags.pluck(:tag_name).join(', ') %></p>
+    <p>タグ：<%= item.tags.pluck(:tag_name).join(', ') %></p>
       <table>
         <tbody>
           <tr>
