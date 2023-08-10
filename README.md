@@ -90,7 +90,6 @@
 | route              | string     |                                |
 | get_date           | string     |                                |
 | memo               | text       |                                |
-| user_id            | references |                                |
 
 #### Association
 - belongs_to :user
