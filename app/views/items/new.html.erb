@@ -1,6 +1,6 @@
     <h3>登録する</h3>
 
-<%= form_with(model: @item, local: true) do |f| %>
+<%= form_with(model: @item_tag, url: items_path, local: true) do |f| %>
   <div>
     <p>画像</p>
     <%= f.file_field :image, id:"item-image" %>
@@ -11,7 +11,7 @@
   </div>
   <div>
     <p>タグ</p>
-    <%= f.text_field :tag, placeholder: "タグ" %>
+    <%= f.text_field :tag_name, placeholder: "タグ" %>
   </div>
   <div>
     <p>コンディション</p>

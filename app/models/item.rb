@@ -1,8 +1,8 @@
 class Item < ApplicationRecord
-  validates :name, presence: true
+  has_many :taggings,dependent: :destroy
+  has_many :tags, through: :taggings
 
   has_one_attached :image
-  belongs_to :user
 
   extend ActiveHash::Associations::ActiveRecordExtensions
     belongs_to :condition, class_name: 'Condition'

@@ -2,6 +2,8 @@
 
 <%= image_tag @item.image.variant(resize: '600x600'), class: "item-box-img" if @item.image.attached? %>
 <p><%= @item.name %></p>
+<p>タグ：<%= @item.tags.pluck(:tag_name).join(', ') %></p>
+
 <table>
   <tbody>
     <tr>

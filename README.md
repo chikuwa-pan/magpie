@@ -90,7 +90,6 @@
 | route              | string     |                                |
 | get_date           | string     |                                |
 | memo               | text       |                                |
-| user_id            | references |                                |
 
 #### Association
 - belongs_to :user
@@ -100,7 +99,7 @@
 ### tags
 | Column             | Type       | Options                        |
 | ------------------ | ---------- | ------------------------------ |
-| tag_name           | string     | foreign_key: true              |
+| tag_name           | string     |                                |
 
 #### Association
 - has_many :items, through: :tagging
