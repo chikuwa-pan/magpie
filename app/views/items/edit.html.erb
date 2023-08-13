@@ -1,18 +1,19 @@
-    <h3>編集する</h3>
+<h3>編集する</h3>
 
-<%= form_with(model: @item_tag, url: item_path(@item), local: true, method: :patch) do |f| %>
-  <div>
-    <p>画像</p>
-    <%= f.file_field :image, id:"item-image" %>
-  </div>
+<%= form_with(model: @item_tag, url: item_path(@item), local: true, method: :patch, id: 'item_form') do |f| %>
+  <div class="image-field">
+    <div id="previews"></div>
+      <p>画像</p>
+      <input type="file" name="item[image]" id="item-image">
+    </div>
+
   <div>
     <p>名前</p>
     <%= f.text_field :name, placeholder: "name" %>
   </div>
   <div>
     <p>タグ</p>
-    <%#= f.text_field :@item_tag.tag_name, placeholder: "タグ" %>
-    <%= f.text_field :tag_name, value: @item_tag.tag_name, placeholder: "タグ" %>
+    <%= f.text_field :tag_name, placeholder: "タグ" %>
   </div>
   <div>
     <p>コンディション</p>
@@ -34,7 +35,7 @@
     <p>入手ルート</p>
     <%= f.text_field :route, placeholder: "入手ルート" %>
   </div>
-    <div>
+  <div>
     <p>入手時期</p>
     <%= f.text_field :get_date, placeholder: "入手時期" %>
   </div>
@@ -42,8 +43,10 @@
     <p>memo</p>
     <%= f.text_area :memo, placeholder: "memo", rows: "10" %>
   </div>
+
   <div><%= f.submit "SAVE" %></div>
 <% end %>
+
 
 <div class="css">
   <%= link_to "戻る", item_path(@item), class: :item__btn %>
