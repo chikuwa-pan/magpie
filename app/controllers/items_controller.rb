@@ -2,7 +2,7 @@ class ItemsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create]
 
     def index
-      @items = Item.order(created_at: :desc).limit(10)
+      @items = Item.order(created_at: :desc).limit(10) # アイテム一覧の取得
     end
   
     def new
@@ -97,6 +97,13 @@ class ItemsController < ApplicationController
       @item = Item.find(params[:id])
       @item.destroy
       redirect_to root_path
+    end
+
+    def search
+      if params[:search].present?
+        @search_results = Item.search(params[:search])
+        logger.debug "Search Results in Search Action: #{@search_results}"
+      end
     end
 
     private

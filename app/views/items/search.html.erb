@@ -1,6 +1,6 @@
-<h2>新着アイテム</h2>
-  <% @items.each do |item| %>
-
+  <h2>検索結果</h2>
+  <% if @search_results.present? %>
+    <% @search_results.each do |item| %>
     <% if item.image.attached? %>
       <%= link_to item_path(item) do %>
         <%= image_tag item.image, class: "item-box-img" %>
@@ -81,4 +81,7 @@
           </tr>
         </tbody>
       </table>
-  <% end %>
+    <% end %>
+  <% else %>
+  <p>該当するアイテムはありません。</p>
+<% end %>
