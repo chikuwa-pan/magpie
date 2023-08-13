@@ -1,8 +1,15 @@
-<h1>詳細</h1>
+<h2>詳細</h2>
 
 <%= image_tag @item.image.variant(resize: '600x600'), class: "item-box-img" if @item.image.attached? %>
 <p><%= @item.name %></p>
-<p>タグ：<%= @item.tags.pluck(:tag_name).join(', ') %></p>
+  <p>タグ：
+    <!-- アイテムに関連するタグを取得 -->
+    <% @tag_list = @item.tags %>
+    <!--タグリスト-->
+    <% @tag_list.each do |list|%>
+      <%=link_to list.tag_name,search_tag_path(tag_id: list.id) %>
+      <%="(#{list.items.count})" %>
+    <% end %></p>
 
 <table>
   <tbody>

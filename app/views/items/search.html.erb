@@ -1,0 +1,8 @@
+  <h2>検索結果</h2>
+  <% if @search_results.present? %>
+    <% @search_results.each do |item| %>
+      <%= render partial: "item", locals: { item: item } %>
+    <% end %>
+  <% else %>
+  <p>該当するアイテムはありません。</p>
+<% end %>

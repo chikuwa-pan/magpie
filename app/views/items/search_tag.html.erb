@@ -1,5 +1,5 @@
-<h2>新着アイテム</h2>
-	
+<h2>'<%= @tag.tag_name %>'一覧</h2>
+
 <% @items.each do |item| %>
   <%= render partial: "item", locals: { item: item } %>
 <% end %>
