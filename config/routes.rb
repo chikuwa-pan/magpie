@@ -7,4 +7,6 @@ Rails.application.routes.draw do
       get 'search', to: 'items#search'
     end
   end
+
+  get "search_tag"=>"items#search_tag"
 end
