@@ -1,10 +1,12 @@
-    <h3>登録する</h3>
+<h3>登録する</h3>
 
-<%= form_with(model: @item_tag, url: items_path, local: true) do |f| %>
-  <div>
-    <p>画像</p>
-    <%= f.file_field :image, id:"item-image" %>
-  </div>
+<%= form_with(model: @item_tag, url: items_path, local: true, id: 'item_form') do |f| %>
+  <div class="image-field">
+    <div id="previews"></div>
+      <p>画像</p>
+      <input type="file" name="item[image]" id="item-image">
+    </div>
+
   <div>
     <p>名前</p>
     <%= f.text_field :name, placeholder: "name" %>
@@ -33,7 +35,7 @@
     <p>入手ルート</p>
     <%= f.text_field :route, placeholder: "入手ルート" %>
   </div>
-    <div>
+  <div>
     <p>入手時期</p>
     <%= f.text_field :get_date, placeholder: "入手時期" %>
   </div>
@@ -41,5 +43,6 @@
     <p>memo</p>
     <%= f.text_area :memo, placeholder: "memo", rows: "10" %>
   </div>
+
   <div><%= f.submit "SAVE" %></div>
 <% end %>
