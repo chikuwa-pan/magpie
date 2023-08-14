@@ -5,34 +5,75 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@100;300&family=Roboto:wght@100&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,400,0,0" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/destyle.css@1.0.15/destyle.css"/>
     <%= javascript_importmap_tags %>
   </head>
 
   <body>
-      <header class="header">
-      <div class="header__bar row">
-        <h1 class="grid-6"><a href="/">Magpie</a></h1>
-        <%= form_with(url: search_items_path, local: true, method: :get, class: "search-form") do |form| %>
-          <%= form.text_field :search, placeholder: "search", class: "search-input" %>
-          <%= form.submit "検索", class: "search-btn" %>
+    <header class="nav_grid gradient">
+      <h1 class="title flex flex_center">
+        <%#= link_to image_tag("logo.png", class:"logo"), "/" %>
+        <%= link_to "/", class: "flex flex_center" do %>
+          <span class="material-symbols-rounded">mosque</span>
+          <span>Magpie</span>
         <% end %>
+      </h1>
 
+      <div class="grid_right flex flex_row flex_end">
         <% if user_signed_in? %>
-          <div class="user_nav grid-6">
-            <h2>ようこそ、<%= current_user.nickname %>さん！</h2>
-            <%= link_to "ログアウト", destroy_user_session_path, data: { turbo_method: :delete } %>
-            <%= link_to "登録する", new_item_path, class: "post" %>
+          <div class="flex flex_center">
+            <div class="view_all btn">
+              <a href="/" class="flex flex_center">
+                View all collection<span class="material-symbols-rounded">apps</span>
+              </a>
+            </div>
           </div>
+
+          <div class="flex flex_center">
+            <%= form_with(url: search_items_path, local: true, method: :get, class: "flex_item_center") do |form| %>
+              <%= form.text_field :search, placeholder: "検索ワード", class: "search-input" %>
+              <%= form.submit "Search", class: "btn" %>
+              <%#span class="material-symbols-rounded">search</span%>
+            <% end %>
+          </div>
+
+          <div class="flex flex_center flex_row">
+            <div class="user_login">
+              <h2>ようこそ、<%= current_user.nickname %>さん！</h2>
+                <div class="logout btn">
+                  <%= link_to "Log out", destroy_user_session_path, data: { turbo_method: :delete } %>
+                  <span class="material-symbols-rounded">logout</span>
+                </div>
+            </div>
+            <%= link_to new_item_path, class: "new_create flex flex_center flex_column gradient" do %>
+              <span class="material-symbols-rounded">add_a_photo</span>
+              <span class='purchase-btn-text'>登録する</span>
+            <% end %>
+          </div>
+
         <% else %>
-          <div class="grid-6">
-            <%= link_to "ログイン", new_user_session_path, class: "post" %>
-            <%= link_to "新規登録", new_user_registration_path, class: "post" %>
-          </div>
+            <div class="sign_in_log_in flex flex_center flex_end">
+              <%= link_to new_user_session_path, class: "btn flex flex_center" do %>
+                <span>Log in</span>
+                <span class="material-symbols-rounded">login</span>
+              <% end %>
+              <%= link_to new_user_registration_path, class: "btn flex flex_center" do %>
+                <span>Sign up</span>
+                <span class="material-symbols-rounded">person_add</span>
+              <% end %>
+            </div>
         <% end %>
       </div>
     </header>
+
     <%= yield %>
+    <footer class="gradient">
+      <small>2023 marurun</small>
+    </footer>
   </body>
 </html>

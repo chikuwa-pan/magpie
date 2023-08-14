@@ -1,4 +1,7 @@
-<h2>Sign up</h2>
+<div class="wrapper form">
+  <h2 class="title flex flex_center">Sign up
+    <span class="material-symbols-rounded">person_add</span>
+  </h2>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
@@ -31,4 +34,5 @@
   </div>
 <% end %>
 
-<%= render "devise/shared/links" %>
+<%#= render "devise/shared/links" %>
+</div>

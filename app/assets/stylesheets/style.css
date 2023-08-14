@@ -1,0 +1,154 @@
+body {
+  height: 100vh;
+  background-color: #fff;
+  color: #444;
+  font-family: 'M PLUS Rounded 1c', sans-serif;
+  font-weight: 100;
+}
+
+.btn {
+  padding: 5px 10px;
+  border: 1px #fff solid;
+  border-radius: 5px;
+  background: rgba(255, 255, 255, .2);
+}
+.btn:hover,
+.btn:active {
+  background: rgba(255, 255, 255, 0);
+  transition: 0.5s ;
+}
+
+.gradient { background: linear-gradient(90deg, rgba(251, 78, 78, 1), rgba(211, 184, 255, 1)); }
+
+/* flex */
+.flex { display: flex; }
+.flex_center { align-items: center; }
+.flex_column { justify-content: center; flex-direction: column; }
+.flex_row { display: flex; flex-flow: row; }
+.flex_end { justify-content: end; }
+/* flex */
+
+.title { font-size: 2rem; font-weight: 300; }
+.title span { font-size: 2.2rem; margin-right: 5px; }
+
+.wrapper {
+  width: 1024px;
+  margin: 50px auto 100px;
+}
+
+
+/* header */
+header, footer, header a { color: #fff; }
+header .wrapper { justify-content: space-between;}
+
+.nav_grid {
+  width: 100vw;
+  position: sticky;
+  position: -webkit-sticky;
+  top: 0;
+  display: grid;
+  grid-template-columns: 25% 75%;
+  grid-template-rows: 70px;
+}
+.nav_grid > h1 { margin: 0 15px; }
+.nav_grid > div > div { margin: 0 15px 0 0; }
+
+header .view_all a {
+  font-size: 1.4rem;
+}
+
+header .search-input {
+  width: 150px;
+  height: 36px;
+  background-color: #fff;
+  border-radius: 18px;
+  padding-left: 1rem;
+  margin-right: 5px;
+}
+
+header .user_login {
+  text-align: right;
+}
+header .user_login h2 {
+  font-size: 1.2rem;
+  margin-bottom: 5px;
+}
+
+header .logout {
+  display: inline-block;
+}
+  header .logout span, header .logout a {
+    font-size: 1rem;
+    vertical-align: middle;
+  }
+
+header .new_create {
+  width: 100px;
+  height: 100px;
+  position: fixed;
+  right: 1vw;
+  bottom: 40px;
+  border-radius: 50px;
+}
+
+header .new_create .material-symbols-rounded { font-size: 2.4rem;}
+header .sign_in_log_in a:nth-child(1) { margin-right: 15px; }
+
+header .new_create:hover,
+header .new_create:active {
+  background: linear-gradient(90deg, rgba(255, 255, 255, 1), rgba(255, 255, 255, 1));
+  color: #EE718B;
+  border: 1px #EE718B solid;
+  transition: 0.5s ;
+}
+
+/* footer */
+footer {
+  position: sticky;
+  top: 100vh;
+  width: 100%;
+  text-align: center;
+  padding: 5px;
+}
+
+/* sign in / log in */
+
+
+.form {
+  width: 400px;
+  font-size: 18px;
+}
+
+.form .title {
+  margin-bottom: 15px;
+}
+
+.form form {
+  margin: 0 auto;
+}
+
+.form .field {
+  margin-bottom: 15px;
+}
+
+.form input {
+  height: 34px;
+  border: 1px #aaa solid;
+  border-radius: 17px;
+  padding: 0 20px;
+  margin: 5px 0 0 0;
+}
+#user_nickname, #user_email, #user_password {
+  width: 100%;
+}
+
+.form .actions > input {
+  background-color: rgba(251, 78, 78, 1);
+  border: none;
+  color: #fff;
+}
+.form .actions > input:hover,
+.form .actions > input:active {
+  background-color: rgba(211, 184, 255, 1);
+  transition: 0.5s ;
+}
