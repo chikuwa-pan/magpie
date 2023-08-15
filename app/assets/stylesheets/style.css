@@ -17,22 +17,26 @@ body {
   transition: 0.5s ;
 }
 
+/* 詳細のぼたん */
 .item_btn {
   text-align: center;
 }
 
-.item_btn a {
+.item_btn a,
+.item_btn input {
   display: inline-block;
-  padding: 1rem 2rem;
+  width: 100%;
+  max-width: 300px;
+  margin: .2rem auto;
+  padding: .5rem 2rem;
   border: 1px #EE718B solid;
   color: #EE718B;
   background-color: #fff;
   border-radius: 100px;
-  margin-left: 1rem;
 }
-.item_btn a:nth-child(1) {
-  margin-left: 0;
-}
+
+.item_btn input:hover,
+.item_btn input:active,
 .item_btn a:hover,
 .item_btn a:active {
   color: #fff;
@@ -44,6 +48,17 @@ body {
   vertical-align: middle;
 }
 
+.btn_row .item_btn {
+  width: auto;
+}
+
+.btn_row .item_btn:nth-child(1),
+.btn_row .item_btn:nth-child(2) {
+  margin-right: .5rem;
+}
+
+
+
 .gradient { background: linear-gradient(90deg, rgba(251, 78, 78, 1), rgba(211, 184, 255, 1)); }
 
 /* flex */
@@ -53,7 +68,6 @@ body {
 .flex_row { display: flex; flex-flow: row; }
 .flex_end { justify-content: end; }
 .flex_wrap { flex-wrap: wrap; }
-/* flex */
 
 .title { font-size: 2rem; font-weight: 300;  margin-bottom: 3rem; }
 .title span { font-size: 2.2rem; margin-right: 5px; }
@@ -156,15 +170,22 @@ footer {
   margin-bottom: 1.5rem;
 }
 
-.form .form_input {
+#user_nickname, 
+#user_email, 
+#user_password,
+#item_tag_name,
+#item_tag_tag_name,
+#item_tag_product,
+#item_tag_release,
+#item_tag_route,
+#item_tag_,
+#item_tag_get_date,
+.form select,
+.form textarea {
   width: 100%;
   border: 1px #aaa solid;
-  border-radius: 5px;
   padding: 10px 20px;
   margin: .2rem 0 0 0;
-}
-.form .form_input:focus {
-  box-shadow: 0 0 0 2px rgb(251, 78, 78);
 }
 
 #user_nickname, 
@@ -176,10 +197,12 @@ footer {
 #item_tag_release,
 #item_tag_route,
 #item_tag_,
-#item_tag_get_date,
-#submit {
-  border-radius: 100px;
-}
+#item_tag_get_date { border-radius: 100px; }
+
+.form select,
+.form textarea { border-radius: 5px; }
+
+.form .form_input:focus { box-shadow: 0 0 0 2px rgb(251, 78, 78);}
 
 /* image upload btn 
 input#item-image { display: none; }
@@ -198,17 +221,6 @@ input#item-image { display: none; }
 .preview { width: 100px; height: 100px; overflow: hidden; }
 .preview-image { width:100%; height:auto; object-fit: contain; }
  */
-
-.form .actions > input {
-  background-color: rgba(251, 78, 78, 1);
-  border: none;
-  color: #fff;
-}
-.form .actions > input:hover,
-.form .actions > input:active {
-  background-color: rgba(211, 184, 255, 1);
-  transition: 0.5s;
-}
 
 /* item */
 .list_3column {
