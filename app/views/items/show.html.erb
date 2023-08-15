@@ -1,91 +1,101 @@
-<h2>詳細</h2>
+<div class="wrapper">
+  <h2 class="title flex flex_center"><%= @item.name %></h2>
 
-<%= image_tag @item.image.variant(resize: '600x600'), class: "item-box-img" if @item.image.attached? %>
-<p><%= @item.name %></p>
-  <p>タグ：
-    <!-- アイテムに関連するタグを取得 -->
-    <% @tag_list = @item.tags %>
-    <!--タグリスト-->
-    <% @tag_list.each do |list|%>
-      <%=link_to list.tag_name,search_tag_path(tag_id: list.id) %>
-      <%="(#{list.items.count})" %>
-    <% end %></p>
+  <div class="container">
+    <div class="details_image_box">
+      <%= image_tag @item.image.variant(resize: '600x600'), class: "item-box-img" if @item.image.attached? %>
+    </div>
 
-<table>
-  <tbody>
-    <tr>
-      <th>コンディション</th>
-      <td>
-        <% if @item.condition_id.present? %>
-          <%= Condition.find(@item.condition_id).name %>
-        <% else %>
-          -
-        <% end %>
-      </td>
-    </tr>
-    <tr>
-      <th>レア度</th>
-      <td>
-        <% if @item.rarity_id.present? %>
-          <%= Rarity.find(@item.rarity_id).name %>
-        <% else %>
-          -
-        <% end %>
-      </td>
-    </tr>
-    <tr>
-      <th>型番</th>
-      <td>
-      <% if @item.product.present? %>
-        <%= @item.product %>
-      <% else %>
-        -
-      <% end %>
-      </td>
-    </tr>
-    <tr>
-      <th>発売時期</th>
-      <td>
-      <% if @item.release.present? %>
-        <%= @item.release %>
-      <% else %>
-        -
-      <% end %>
-      </td>
-    </tr>
-    <tr>
-      <th>入手ルート</th>
-      <td>
-        <% if @item.route.present? %>
-          <%= @item.route %>
-        <% else %>
-          -
-        <% end %>
-      </td>
-    </tr>
-    <tr>
-      <th>入手時期</th>
-      <td>
-        <% if @item.get_date.present? %>
-          <%= @item.get_date %>
-        <% else %>
-          -
-        <% end %>
-      </td>
-    </tr>
-    <tr>
-      <th>memo</th>
-      <td>
-        <% if @item.memo.present? %>
-          <%= @item.memo %>
-        <% end %>
-      </td>
-    </tr>
-  </tbody>
-</table>
+        <div class="tag_list">
+          <!-- アイテムに関連するタグを取得 -->
+          <% @tag_list = @item.tags %>
+          <!--タグリスト-->
+          <% @tag_list.each do |list|%>
+            <%=link_to list.tag_name,search_tag_path(tag_id: list.id) %>
+            <%="(#{list.items.count})" %>
+          <% end %>
+        </div>
 
-<div class="css">
-  <%= link_to "編集する", edit_item_path(@item.id), class: :item__btn %>
-  <%= link_to "削除する", item_path(@item.id), data: { turbo_method: :delete }, class: :item__btn %>
-  <%= link_to "一覧へ戻る", root_path, class: :item__btn %>
+        <dl class="dl_table flex flex_wrap">
+          <dt>なまえ</dt>
+            <dd>
+              <%= @item.name %>
+            </dd>
+          <dt>コンディション</dt>
+            <dd>
+              <% if @item.condition_id.present? %>
+                <%= Condition.find(@item.condition_id).name %>
+              <% else %>
+                -
+              <% end %>
+            </dd>
+          
+          <dt>レア度</dt>
+            <dd>
+              <% if @item.rarity_id.present? %>
+                <%= Rarity.find(@item.rarity_id).name %>
+              <% else %>
+                -
+              <% end %>
+            </dd>
+          
+          <dt>型番</dt>
+            <dd>
+            <% if @item.product.present? %>
+              <%= @item.product %>
+            <% else %>
+              -
+            <% end %>
+            </dd>
+          
+          <dt>発売時期</dt>
+            <dd>
+            <% if @item.release.present? %>
+              <%= @item.release %>
+            <% else %>
+              -
+            <% end %>
+            </dd>
+          
+          <dt>入手ルート</dt>
+            <dd>
+              <% if @item.route.present? %>
+                <%= @item.route %>
+              <% else %>
+                -
+              <% end %>
+            </dd>
+          
+          <dt>入手時期</dt>
+            <dd>
+              <% if @item.get_date.present? %>
+                <%= @item.get_date %>
+              <% else %>
+                -
+              <% end %>
+            </dd>
+          
+          <dt>memo</dt>
+            <dd>
+              <% if @item.memo.present? %>
+                <%= @item.memo %>
+              <% end %>
+            </dd>
+        </dl>
+
+      <div class="item_btn">
+        <%= link_to edit_item_path(@item.id), class: :item_btn do %>
+          <span>編集</span>
+          <span class="material-symbols-rounded">edit</span>
+        <% end %>
+        <%= link_to item_path(@item.id), data: { turbo_method: :delete }, class: :item_btn do %>
+          <span>削除</span>
+          <span class="material-symbols-rounded">delete</span>
+        <% end%>
+        <%= link_to root_path, class: :item_btn do %>
+          <span>もどる</span>
+          <span class="material-symbols-rounded">undo</span>
+        <% end%>
+      </div>
+  </div>
 </div>

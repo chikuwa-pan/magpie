@@ -17,6 +17,33 @@ body {
   transition: 0.5s ;
 }
 
+.item_btn {
+  text-align: center;
+}
+
+.item_btn a {
+  display: inline-block;
+  padding: 1rem 2rem;
+  border: 1px #EE718B solid;
+  color: #EE718B;
+  background-color: #fff;
+  border-radius: 100px;
+  margin-left: 1rem;
+}
+.item_btn a:nth-child(1) {
+  margin-left: 0;
+}
+.item_btn a:hover,
+.item_btn a:active {
+  color: #fff;
+  background-color: #EE718B;
+  transition: 0.5s;
+}
+
+.item_btn span {
+  vertical-align: middle;
+}
+
 .gradient { background: linear-gradient(90deg, rgba(251, 78, 78, 1), rgba(211, 184, 255, 1)); }
 
 /* flex */
@@ -36,6 +63,10 @@ body {
   margin: 50px auto 100px;
 }
 
+.container {
+  width: 600px;
+  margin: 0 auto;
+}
 
 /* header */
 header, footer, header a { color: #fff; }
@@ -187,21 +218,21 @@ input#item-image { display: none; }
   background-color: rgb(251, 247, 255);
   border-radius: 5px;
 }
-.item_image_box {
+.list_image_box {
   width: 25vw;
   height: 25vw;
   margin: 0 auto 1rem;
   overflow: hidden;
   border-radius: 5px;
 }
-.item_image_box a {
+.list_image_box a {
   width: 100%;
   height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
 }
-.item_image_box img {
+.list_image_box img {
   max-width:100%;
   height:auto;
   object-fit: contain;
@@ -210,9 +241,11 @@ input#item-image { display: none; }
 
 .item_title {
   display: block;
-  color: #EE718B;
   font-size: 1.2rem;
   margin-bottom: .2rem;
+}
+a.item_title  {
+  color: #EE718B;
 }
 
 .tag_list {
@@ -226,4 +259,40 @@ input#item-image { display: none; }
   border-radius: 100px;
   background-color: #EE718B;
   color: #fff;
+}
+
+/* details table */
+.dl_table {
+  width: 100%;
+  margin-bottom: 2rem;
+}
+.dl_table dt,
+.dl_table dd {
+  padding: 1rem .5rem;
+}
+.dl_table dt { 
+  width: 180px;
+  text-align: center;
+  border-bottom: 1px rgb(251, 78, 78) solid;
+}
+.dl_table dd { 
+  width: calc(100% - 180px);
+  border-bottom: 1px rgb(211, 184, 255) solid;
+}
+
+.details_image_box {
+  width: 50vw;
+  height: 50vw;
+  max-width: 600px;
+  max-height: 600px;
+  margin: 0 auto 1rem;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.details_image_box img {
+  max-width:100%;
+  height:auto;
+  object-fit: contain;
 }
