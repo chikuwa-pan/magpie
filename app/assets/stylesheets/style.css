@@ -98,8 +98,8 @@ footer { position: relative; z-index: 1; }
 }
 
 .details_image_box {
-  /*width: 50vw;
-  height: 50vw;*/
+  width: 50vw;
+  height: 50vw;
   max-width: 500px;
   max-height: 500px;
   margin: 0 auto 1rem;
@@ -399,6 +399,9 @@ a.item_title  {
     width: 90vw;
     padding-bottom: 50px;
   }
+  .container {
+    width: 90vw;
+  }
   .list_column {
     width: 100%
   }
@@ -408,4 +411,27 @@ a.item_title  {
     width: 80vw;
     height: 80vw;
   }
+  .details_image_box {
+    width: 80vw;
+    height: 80vw;
+  }
+
+  .dl_table {
+    display: block;
+  }
+    .dl_table dt, .dl_table dd {
+      width: 100%;
+      padding: 0.5rem;
+      text-align: left;
+    }
+    .dl_table dt {
+      border-bottom: none;
+      color: rgb(251, 78, 78);
+    }
+    .dl_table dd {
+      border-bottom: 1px rgb(251, 78, 78) solid;
+    }
+    .item_btn a, .item_btn input {
+      padding: .5rem;
+    }
 }
