@@ -1,21 +1,23 @@
-  <div class="card">
-    <div class="card-body">
-
-    <% if item.image.attached? %>
-      <%= link_to item_path(item) do %>
-        <%= image_tag item.image, class: "item-box-img" %>
+  <div class="list_3column">
+    <div class="item_image_box">
+      <% if item.image.attached? %>
+        <%= link_to item_path(item) do %>
+          <%= image_tag item.image, class: "item-box-img" %>
+        <% end %>
       <% end %>
-    <% end %>
+    </div>
 
-    <p><%= link_to item.name, item_path(item), class: :card__title %></p>
-    <p>タグ：
+    <%= link_to item.name, item_path(item), class: :item_title %>
+    
+    <div class="tag_list">
       <!-- アイテムに関連するタグを取得 -->
       <% @tag_list = item.tags %>
       <!--タグリスト-->
       <% @tag_list.each do |list|%>
         <%=link_to list.tag_name,search_tag_path(tag_id: list.id) %>
         <%="(#{list.items.count})" %>
-      <% end %></p>
+      <% end %>
+    </div>
 
       <p>レア度：
         <% if item.rarity_id.present? %>
@@ -24,5 +26,4 @@
           -
         <% end %>
       </p>
-    </div>
   </div>

@@ -1,5 +1,8 @@
-<h2>新着アイテム</h2>
-	
-<% @items.each do |item| %>
-  <%= render partial: "item", locals: { item: item } %>
-<% end %>
+<div class="wrapper">
+  <h2 class="title flex flex_center">New arrival</h2>
+    <div class="flex flex_wrap flex_start">
+      <% @items.each do |item| %>
+        <%= render partial: "item", locals: { item: item } %>
+      <% end %>
+    </div>
+</div>
