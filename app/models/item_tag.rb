@@ -32,9 +32,5 @@ class ItemTag
       tag.save if tag.new_record?
       Tagging.create(item: item, tag: tag)
     end
-    #tag_names.each do |tag_name|
-    #  tag = Tag.find_or_create_by(tag_name: tag_name)
-    #  Tagging.create(item: item, tag: tag)
-    #end
   end
 end

@@ -2,8 +2,7 @@ body {
   height: 100vh;
   background-color: #fff;
   color: #444;
-  font-family: 'M PLUS Rounded 1c', sans-serif;
-  font-weight: 100;
+  font-family: 'Quicksand','M PLUS Rounded 1c', sans-serif;
 }
 
 .btn {
@@ -28,7 +27,7 @@ body {
 .flex_end { justify-content: end; }
 /* flex */
 
-.title { font-size: 2rem; font-weight: 300; }
+.title { font-size: 2rem; font-weight: 300;  margin-bottom: 3rem; }
 .title span { font-size: 2.2rem; margin-right: 5px; }
 
 .wrapper {
@@ -111,16 +110,10 @@ footer {
   padding: 5px;
 }
 
-/* sign in / log in */
-
-
+/* form */
 .form {
-  width: 400px;
+  width: 300px;
   font-size: 18px;
-}
-
-.form .title {
-  margin-bottom: 15px;
 }
 
 .form form {
@@ -128,19 +121,50 @@ footer {
 }
 
 .form .field {
-  margin-bottom: 15px;
+  margin-bottom: 1.5rem;
 }
 
-.form input {
-  height: 34px;
-  border: 1px #aaa solid;
-  border-radius: 17px;
-  padding: 0 20px;
-  margin: 5px 0 0 0;
-}
-#user_nickname, #user_email, #user_password {
+.form .form_input {
   width: 100%;
+  border: 1px #aaa solid;
+  border-radius: 5px;
+  padding: 10px 20px;
+  margin: .2rem 0 0 0;
 }
+.form .form_input:focus {
+  box-shadow: 0 0 0 2px rgb(251, 78, 78);
+}
+
+#user_nickname, 
+#user_email, 
+#user_password,
+#item_tag_name,
+#item_tag_tag_name,
+#item_tag_product,
+#item_tag_release,
+#item_tag_route,
+#item_tag_,
+#item_tag_get_date,
+#submit {
+  border-radius: 100px;
+}
+
+/* image upload btn 
+input#item-image { display: none; }
+.image-field label {
+  display: inline-block;
+  padding: 5px;
+  color: #EE718B;
+  border: 1px #EE718B solid;
+  border-radius: 5px;
+}
+  .image-field label span { vertical-align: middle; }
+  .image-field label:hover,
+  .image-field label:active { background-color: #EE718B; color: #fff; transition: 0.5s; }
+*/
+/* image preview */
+.preview { width: 100px; height: 100px; overflow: hidden; }
+.preview-image { width:100%; height:auto; object-fit: contain; }
 
 .form .actions > input {
   background-color: rgba(251, 78, 78, 1);
@@ -150,5 +174,8 @@ footer {
 .form .actions > input:hover,
 .form .actions > input:active {
   background-color: rgba(211, 184, 255, 1);
-  transition: 0.5s ;
+  transition: 0.5s;
+}
+#submit {
+  text-align: center;
 }
