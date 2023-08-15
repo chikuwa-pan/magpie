@@ -11,9 +11,11 @@ class ItemsController < ApplicationController
     end
   
     def create
+      Rails.logger.info("create action started")
       @item_tag = ItemTag.new(item_tag_params)
-  
+      pp @item_tag
       if @item_tag.valid?
+
         @item = Item.create(
           name: @item_tag.name,
           condition_id: @item_tag.condition_id,
@@ -25,8 +27,10 @@ class ItemsController < ApplicationController
           memo: @item_tag.memo
         )
         
+        puts "Before attaching image"
         @item.image.attach(@item_tag.image)  # 画像をアタッチ
-  
+        puts "After attaching image"
+
         tag_names = @item_tag.tag_name.split(',').map(&:strip)
         tag_names.each do |tag_name|
           tag = Tag.find_or_create_by(tag_name: tag_name)
