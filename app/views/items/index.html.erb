@@ -12,14 +12,19 @@
     </div>
   <% else %>
     <div class="vh100">
-      <div>
-        <h2>増えすぎるコレクション管理に</h2>
+      <h2><%= image_tag "catch01.png" %></h2>
+
+      <div class="item_btn">
+        <%= link_to new_user_registration_path, class: "btn flex flex_center" do %>
+          <span>新規登録</span>
+          <span class="material-symbols-rounded">person_add</span>
+        <% end %>
       </div>
 
-      <div class="flex list_colimn">
-        <div>持っているものをリスト化</div>
-        <div>検索機能</div>
-        <div>いつでもみれる</div>
+      <div class="flex flex_between catch">
+        <div><%= image_tag "catch02.png" %></div>
+        <div><%= image_tag "catch03.png" %></div>
+        <div><%= image_tag "catch04.png" %></div>
       </div>
     </div>
   <% end %>

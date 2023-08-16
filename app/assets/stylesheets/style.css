@@ -41,8 +41,8 @@ footer { position: relative; z-index: 1; }
   margin: .2rem auto;
   padding: .5rem 2rem;
   border: 1px rgba(178, 111, 245, 1) solid;
-  color: rgba(178, 111, 245, 1);
-  background-color: #fff;
+  background-color: rgba(178, 111, 245, 1);
+  color: #fff;
   border-radius: 100px;
 }
 
@@ -50,8 +50,8 @@ footer { position: relative; z-index: 1; }
 .item_btn input:active,
 .item_btn a:hover,
 .item_btn a:active {
-  color: #fff;
-  background-color: rgba(178, 111, 245, 1);
+  background-color: #fff;
+  color: rgba(178, 111, 245, 1);
   transition: 0.5s;
 }
 
@@ -149,10 +149,28 @@ footer { position: relative; z-index: 1; }
   width: 100vw;
   height: calc(100vh - 100px);
 }
+  .vh100 h2,
+  .vh100 > div {
+    padding-top: 50px;
+    text-align: center;
+  }
+  .vh100 h2 img {
+    width: 90vw;
+    max-width: 500px;
+  }
+  .vh100 .catch {
+    width: 600px;
+    margin: 0 auto;
+  }
+  .vh100 .catch img {
+    width: 90vw;
+    max-width: 180px;
+  }
 
-/* flex */
+  /* flex */
 .flex { display: flex; }
 .flex_center { align-items: center; }
+.flex_between { justify-content: space-between; }
 .flex_column { justify-content: center; flex-direction: column; }
 .flex_row { display: flex; flex-flow: row; }
 .flex_end { justify-content: end; }
@@ -422,10 +440,34 @@ a.item_title  {
     width: 33vw;
     height: 33vw;
   }
+
+  .vh100 {
+    width: 100vw;
+    height: calc(100vh - 100px);
+    padding-top: 70px;
+  }
+    .vh100 h2,
+    .vh100 > div {
+      padding-top: 50px;
+      text-align: center;
+    }
+    .vh100 h2 img {
+      width: 90vw;
+      max-width: 500px;
+    }
+    .vh100 .catch {
+      width: 600px;
+      margin: 0 auto;
+    }
+    .vh100 .catch img {
+      width: 90vw;
+      max-width: 180px;
+    }
 }
 
 
 @media (max-width: 519px) {
+  .sign_up {display: none;}
   .wrapper {
     width: 90vw;
     padding-bottom: 50px;
@@ -465,4 +507,29 @@ a.item_title  {
     .item_btn a, .item_btn input {
       padding: .5rem;
     }
+
+    .vh100 {
+      width: 100vw;
+      height: auto;
+      padding: 70px 0;
+    }
+      .vh100 h2,
+      .vh100 > div {
+        padding-top: 50px;
+        text-align: center;
+      }
+      .vh100 h2 img {
+        width: 90vw;
+        max-width: 500px;
+      }
+      .vh100 .catch {
+        width: 90vw;
+        display: block;
+        margin: 0 auto;
+      }
+      .vh100 .catch img {
+        width: 90vw;
+        max-width: 380px;
+        margin-bottom: 50px;
+      }
 }

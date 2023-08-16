@@ -133,6 +133,20 @@
               <span>Magpie</span>
             <% end %>
           </h1>
+
+          <div class="flex flex_center flex_end">
+            <div class="sign_in_log_in flex flex_center">
+              <%= link_to new_user_session_path, class: "btn flex flex_center" do %>
+                <span>Log in</span>
+                <span class="material-symbols-rounded">login</span>
+              <% end %>
+              <%= link_to new_user_registration_path, class: "btn flex flex_center sign_up" do %>
+                <span>Sign up</span>
+                <span class="material-symbols-rounded">person_add</span>
+              <% end %>
+            </div>
+          </div>
+
         </header>
       <% end %>
     </div><!--//sp-->
