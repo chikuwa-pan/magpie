@@ -1,8 +1,12 @@
-<div class="wrapper">
-  <h2 class="title flex flex_center">'<%= @tag.tag_name %>' 一覧</h2>
-    <div class="flex flex_wrap">
-      <% @items.each do |item| %>
-        <%= render partial: "item", locals: { item: item } %>
-      <% end %>
+<div class="bg_image">
+  <div class="bg_fff">
+    <div class="wrapper">
+      <h2 class="title flex flex_center">'<%= @tag.tag_name %>' 一覧</h2>
+        <div class="flex flex_wrap">
+          <% @items.each do |item| %>
+            <%= render partial: "item", locals: { item: item } %>
+          <% end %>
+        </div>
     </div>
+  </div>
 </div>
