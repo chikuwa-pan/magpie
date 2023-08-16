@@ -2,7 +2,7 @@
 <html>
   <head>
     <title>Magpie</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
@@ -15,7 +15,7 @@
   </head>
 
   <body>
-    <header class="nav_grid gradient">
+    <header class="nav_grid gradient" id="pc">
       <h1 class="title flex flex_center">
         <%#= link_to image_tag("logo.png", class:"logo"), "/" %>
         <%= link_to "/", class: "flex flex_center" do %>
@@ -28,17 +28,16 @@
         <% if user_signed_in? %>
           <div class="flex flex_center">
             <div class="view_all btn">
-              <a href="/" class="flex flex_center">
-                View all collection<span class="material-symbols-rounded">apps</span>
-              </a>
+              <%= link_to "/", class: "flex flex_center" do %>
+                <span class="material-symbols-rounded">apps</span>View all collection
+              <% end %>
             </div>
           </div>
 
           <div class="flex flex_center">
-            <%= form_with(url: search_items_path, local: true, method: :get, class: "flex_item_center") do |form| %>
-              <%= form.text_field :search, placeholder: "検索ワード", class: "search-input" %>
+            <%= form_with(url: search_items_path, local: true, method: :get, class: "flex flex_center") do |form| %>
+              <%= form.text_field :search, placeholder: "検索ワード", class: "search_input" %>
               <%= form.submit "Search", class: "btn" %>
-              <%#span class="material-symbols-rounded">search</span%>
             <% end %>
           </div>
 
@@ -46,8 +45,10 @@
             <div class="user_login">
               <h2>ようこそ、<%= current_user.nickname %>さん！</h2>
                 <div class="logout btn">
-                  <%= link_to "Log out", destroy_user_session_path, data: { turbo_method: :delete } %>
-                  <span class="material-symbols-rounded">logout</span>
+                  <%= link_to destroy_user_session_path, data: { turbo_method: :delete } do %>
+                    <span class="material-symbols-rounded">logout</span>
+                    <span>Log out</span>
+                  <% end %>
                 </div>
             </div>
             <% unless current_page?(new_item_path) %>
@@ -71,7 +72,70 @@
             </div>
         <% end %>
       </div>
-    </header>
+    </header><!--//pc-->
+
+    <div id="sp">
+      <% if user_signed_in? %>
+        <header class="nav_grid gradient">
+          <h1 class="title flex flex_center">
+            <%#= link_to image_tag("logo.png", class:"logo"), "/" %>
+            <%= link_to "/", class: "flex flex_center" do %>
+              <span class="material-symbols-rounded">mosque</span>
+              <span>Magpie</span>
+            <% end %>
+          </h1>
+          <div class="grid_right flex flex_row flex_end">
+            <div class="hamburger">
+              <span class="material-symbols-rounded menu_open">menu</span>
+              <span class="material-symbols-rounded menu_close">close</span>
+            </div>
+          </div>
+
+          <% unless current_page?(new_item_path) %>
+            <%= link_to new_item_path, class: "new_create flex flex_center flex_column gradient" do %>
+              <span class="material-symbols-rounded">add</span>
+              <span class='purchase-btn-text'>登録する</span>
+            <% end %>
+          <% end %>
+        </header>
+        <ul class="sp_nav">
+          <li>ようこそ、<%= current_user.nickname %>さん！</li>
+          <li>
+            <%= link_to "/", class: "flex flex_center" do %>
+              <span class="material-symbols-rounded">apps</span>
+              <span>View all</span>
+            <% end %>
+          </li>
+          <li>
+            <%= form_with(url: search_items_path, local: true, method: :get) do |form| %>
+              <div class="flex flex_center">
+                <span class="material-symbols-rounded">search</span>
+                <span>Search</span>
+              </div>
+                <%= form.text_field :search, placeholder: "検索ワード", class: "search_input" %>
+              <p class="sp_nav_btn"><%= form.submit "検索" %></p>
+            <% end %>
+          </li>
+          <li>
+            <%= link_to destroy_user_session_path, data: { turbo_method: :delete }, class: "flex flex_center" do %>
+              <span class="material-symbols-rounded">logout</span>
+              <span>Log out</span>
+            <% end %>
+          </li>
+        </ul>
+
+      <% else %>
+        <header class="nav_grid gradient">
+          <h1 class="title flex flex_center">
+            <%#= link_to image_tag("logo.png", class:"logo"), "/" %>
+            <%= link_to "/", class: "flex flex_center" do %>
+              <span class="material-symbols-rounded">mosque</span>
+              <span>Magpie</span>
+            <% end %>
+          </h1>
+        </header>
+      <% end %>
+    </div><!--//sp-->
 
     <%= yield %>
     <footer class="gradient">
