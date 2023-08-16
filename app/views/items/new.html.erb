@@ -7,7 +7,8 @@
     <div class="field image-field">
       <div id="previews"></div>
         <p>画像</p>
-        <input type="file" name="item[image]" id="item-image">
+        <%# input type="file" name="item[image]" id="item-image" %>
+        <%= f.file_field :image, id: 'item_image' %>
     </div>
 
     <div class="field">
