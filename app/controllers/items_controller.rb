@@ -114,7 +114,7 @@ class ItemsController < ApplicationController
       # 検索されたタグを受け取る
       @tag = Tag.find(params[:tag_id])
       # 検索されたタグに紐づく投稿を表示
-      @items = @tag.items.order(created_at: :desc)
+      @items = @tag.items.order(created_at: :desc).page(params[:page]).per(12)
     end
 
     private
