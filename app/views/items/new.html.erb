@@ -11,12 +11,10 @@
     </div>
 
     <div class="field">
-      <%#p class="field_title">名前</p%>
       <%= f.label :name, "おなまえ" %>
       <%= f.text_field :name, placeholder: "アイテム名", class:"form_input" %>
     </div>
     <div class="field">
-      <%#p class="field_title">タグ</p%>
       <%= f.label :tag_name, "タグ" %>
       <%= f.text_field :tag_name, placeholder: ",で区切って複数登録できます", class:"form_input" %>
     </div>
@@ -29,32 +27,27 @@
       <%= f.collection_select(:rarity_id, Rarity.all, :id, :name, {}, {class:"form_input"}) %>
     </div>
     <div class="field">
-      <%#p class="field_title">型番</p%>
       <%= f.label :product, "型番" %>
       <%= f.text_field :product, placeholder: "ウ-33", class:"form_input" %>
     </div>
     <div class="field">
-      <%#p class="field_title">発売時期</p%>
       <%= f.label :release, "発売時期" %>
       <%= f.text_field :release, placeholder: "1999年ごろ", class:"form_input" %>
     </div>
     <div class="field">
-      <%#p class="field_title">入手ルート</p%>
       <%= f.label :route, "入手ルート" %>
       <%= f.text_field :route, placeholder: "リサイクルショップ", class:"form_input" %>
     </div>
     <div class="field">
-      <%#p class="field_title">入手時期</p%>
       <%= f.label :get_date, "入手時期" %>
       <%= f.text_field :get_date, placeholder: "2023年", class:"form_input" %>
     </div>
     <div class="field">
-      <%#p class="field_title">memo</p%>
       <%= f.label :nemo, "Memo" %>
       <%= f.text_area :memo, placeholder: "例:パッケージ傷あり", rows: "5", class:"form_input" %>
     </div>
 
-    <div class="actions">
+    <div class="item_btn">
       <%= f.submit "SAVE", class:"form_input" %>
     </div>
   <% end %>
