@@ -15,7 +15,7 @@
   </head>
 
   <body>
-    <header class="nav_grid gradient" id="pc">
+    <header class="nav_grid gradient1" id="pc">
       <h1 class="title flex flex_center">
         <%#= link_to image_tag("logo.png", class:"logo"), "/" %>
         <%= link_to "/", class: "flex flex_center" do %>
@@ -52,7 +52,7 @@
                 </div>
             </div>
             <% unless current_page?(new_item_path) %>
-              <%= link_to new_item_path, class: "new_create flex flex_center flex_column gradient" do %>
+              <%= link_to new_item_path, class: "new_create flex flex_center flex_column gradient2" do %>
                 <span class="material-symbols-rounded">add</span>
                 <span class='purchase-btn-text'>登録する</span>
               <% end %>
@@ -76,7 +76,7 @@
 
     <div id="sp">
       <% if user_signed_in? %>
-        <header class="nav_grid gradient">
+        <header class="nav_grid gradient1">
           <h1 class="title flex flex_center">
             <%#= link_to image_tag("logo.png", class:"logo"), "/" %>
             <%= link_to "/", class: "flex flex_center" do %>
@@ -92,7 +92,7 @@
           </div>
 
           <% unless current_page?(new_item_path) %>
-            <%= link_to new_item_path, class: "new_create flex flex_center flex_column gradient" do %>
+            <%= link_to new_item_path, class: "new_create flex flex_center flex_column gradient1" do %>
               <span class="material-symbols-rounded">add</span>
               <span class='purchase-btn-text'>登録する</span>
             <% end %>
@@ -125,7 +125,7 @@
         </ul>
 
       <% else %>
-        <header class="nav_grid gradient">
+        <header class="nav_grid gradient1">
           <h1 class="title flex flex_center">
             <%#= link_to image_tag("logo.png", class:"logo"), "/" %>
             <%= link_to "/", class: "flex flex_center" do %>
@@ -138,7 +138,7 @@
     </div><!--//sp-->
 
     <%= yield %>
-    <footer class="gradient">
+    <footer class="gradient1">
       <small>2023 marurun</small>
     </footer>
   </body>

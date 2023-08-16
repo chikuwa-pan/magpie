@@ -1,8 +1,20 @@
-<div class="wrapper">
-  <h2 class="title flex flex_center">New arrival</h2>
-    <div class="flex flex_wrap flex_start">
-      <% @items.each do |item| %>
-        <%= render partial: "item", locals: { item: item } %>
-      <% end %>
-    </div>
-</div>
+<% if user_signed_in? %>
+  <div class="wrapper">
+    <h2 class="title flex flex_center">New arrival</h2>
+        <div class="flex flex_wrap flex_start">
+          <% @items.each do |item| %>
+            <%= render partial: "item", locals: { item: item } %>
+          <% end %>
+        </div>
+  </div>
+<% else %>
+  <div>
+  <h2>増えすぎるコレクション管理に</h2>
+  </div>
+
+  <div class="flex list_colimn">
+    <div>持っているものをリスト化</div>
+    <div>検索機能</div>
+    <div>いつでもみれる</div>
+  </div>
+<% end %>

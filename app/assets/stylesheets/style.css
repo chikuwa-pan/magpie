@@ -1,3 +1,8 @@
+/*
+rgba(251, 78, 78, 1) main color
+rgba(211, 184, 255, 1) sus color
+*/
+
 body {
   height: 100vh;
   background-color: #fff;
@@ -35,8 +40,8 @@ footer { position: relative; z-index: 1; }
   max-width: 300px;
   margin: .2rem auto;
   padding: .5rem 2rem;
-  border: 1px #EE718B solid;
-  color: #EE718B;
+  border: 1px rgba(178, 111, 245, 1) solid;
+  color: rgba(178, 111, 245, 1);
   background-color: #fff;
   border-radius: 100px;
 }
@@ -46,7 +51,7 @@ footer { position: relative; z-index: 1; }
 .item_btn a:hover,
 .item_btn a:active {
   color: #fff;
-  background-color: #EE718B;
+  background-color: rgba(178, 111, 245, 1);
   transition: 0.5s;
 }
 
@@ -69,7 +74,7 @@ footer { position: relative; z-index: 1; }
 
 .sp_nav_btn input {
   padding: 5px 10px;
-    background-color: #EE718B;
+    background-color: rgba(178, 111, 245, 1);
     color: #fff;
     border-radius: 100px;
     margin: 15px 0 0 0;
@@ -114,7 +119,8 @@ footer { position: relative; z-index: 1; }
   object-fit: contain;
 }
 
-.gradient { background: linear-gradient(90deg, rgba(251, 78, 78, 1), rgba(211, 184, 255, 1)); }
+.gradient1 { background: linear-gradient(120deg, rgba(178, 111, 245, 1), rgba(243, 168, 195, 1), rgba(124, 201, 224, 1)); }
+.gradient2 { background: linear-gradient(120deg, rgba(178, 111, 245, 0.8), rgba(243, 168, 195, 0.8)); }
 
 /* flex */
 .flex { display: flex; }
@@ -194,9 +200,9 @@ header .sign_in_log_in a:nth-child(1) { margin-right: 15px; }
 
 header .new_create:hover,
 header .new_create:active {
-  background: linear-gradient(90deg, rgba(255, 255, 255, 1), rgba(255, 255, 255, 1));
-  color: #EE718B;
-  border: 1px #EE718B solid;
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8));
+  color: rgba(178, 111, 245, 1);
+  border: 1px rgba(178, 111, 245, 1) solid;
   transition: 0.5s ;
 }
 
@@ -255,20 +261,20 @@ footer {
 .form select,
 .form textarea { border-radius: 5px; }
 
-.form .form_input:focus { box-shadow: 0 0 0 2px rgb(251, 78, 78);}
+.form .form_input:focus { box-shadow: 0 0 0 2px rgba(178, 111, 245, 1);}
 
 /* image upload btn 
 input#item-image { display: none; }
 .image-field label {
   display: inline-block;
   padding: 5px;
-  color: #EE718B;
-  border: 1px #EE718B solid;
+  color: rgba(178, 111, 245, 1);
+  border: 1px rgba(178, 111, 245, 1) solid;
   border-radius: 5px;
 }
   .image-field label span { vertical-align: middle; }
   .image-field label:hover,
-  .image-field label:active { background-color: #EE718B; color: #fff; transition: 0.5s; }
+  .image-field label:active { background-color: rgba(178, 111, 245, 1); color: #fff; transition: 0.5s; }
 */
 /* image preview
 .preview { width: 100px; height: 100px; overflow: hidden; }
@@ -290,7 +296,7 @@ input#item-image { display: none; }
   margin-bottom: .2rem;
 }
 a.item_title  {
-  color: #EE718B;
+  color: rgba(178, 111, 245, 1);
 }
 
 .tag_list {
@@ -302,7 +308,7 @@ a.item_title  {
   padding: 5px 10px;
   margin-bottom: .2rem;
   border-radius: 100px;
-  background-color: #EE718B;
+  background-color: rgba(178, 111, 245, 1);
   color: #fff;
 }
 
@@ -318,11 +324,11 @@ a.item_title  {
 .dl_table dt { 
   width: 150px;
   text-align: center;
-  border-bottom: 1px rgb(251, 78, 78) solid;
+  border-bottom: 1px rgba(178, 111, 245, 1) solid;
 }
 .dl_table dd { 
   width: calc(100% - 150px);
-  border-bottom: 1px rgb(211, 184, 255) solid;
+  border-bottom: 1px rgba(124, 201, 224 1) solid;
 }
 
 
@@ -364,11 +370,11 @@ a.item_title  {
     /*right: -500px;*/
       display: none;
     background-color: rgba(251, 220, 220, .9);
-    color: #EE718B;
+    color: rgba(178, 111, 245, 1);
     transition: 0.5s;
     }
     .sp_nav a {
-      color: #EE718B;
+      color: rgba(178, 111, 245, 1);
     }
     .sp_nav.active {
       /*right: 0;*/
@@ -378,7 +384,7 @@ a.item_title  {
     font-size: 1.4rem;
     display: block;
     padding: 10px 15px;
-    border-bottom: 1px #EE718B solid;
+    border-bottom: 1px rgba(178, 111, 245, 1) solid;
   }
   .sp_nav li:last-child {
     border-bottom: none;
@@ -426,10 +432,10 @@ a.item_title  {
     }
     .dl_table dt {
       border-bottom: none;
-      color: rgb(251, 78, 78);
+      color: rgba(178, 111, 245, 1);
     }
     .dl_table dd {
-      border-bottom: 1px rgb(251, 78, 78) solid;
+      border-bottom: 1px rgba(178, 111, 245, 1) solid;
     }
     .item_btn a, .item_btn input {
       padding: .5rem;
