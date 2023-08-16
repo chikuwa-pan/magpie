@@ -8,6 +8,8 @@
                 <%= render partial: "item", locals: { item: item } %>
               <% end %>
             </div>
+
+            <%= paginate @items %>
       </div>
     </div>
   <% else %>

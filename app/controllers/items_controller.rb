@@ -2,7 +2,7 @@ class ItemsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create]
 
     def index
-      @items = Item.order(created_at: :desc).limit(10) # アイテム一覧の取得
+      @items = Item.order(created_at: :desc).page(params[:page]).per(12) # アイテム一覧の取得
       @tag_list=Tag.all
     end
   
