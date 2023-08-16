@@ -82,11 +82,10 @@ footer { position: relative; z-index: 1; }
 
 /* image */
 .list_image_box {
-  width: 25vw;
-  height: 25vw;
+  width: 23vw;
+  height: 23vw;
   margin: 0 auto 1rem;
   overflow: hidden;
-  border-radius: 5px;
 }
 .list_image_box a {
   width: 100%;
@@ -97,7 +96,7 @@ footer { position: relative; z-index: 1; }
 }
 .list_image_box img {
   max-width:100%;
-  height:auto;
+  max-height:100%;
   object-fit: contain;
   border-radius: 5px;
 }
@@ -120,7 +119,7 @@ footer { position: relative; z-index: 1; }
 }
 
 .gradient1 { background: linear-gradient(120deg, rgba(178, 111, 245, 1), rgba(243, 168, 195, 1), rgba(124, 201, 224, 1)); }
-.gradient2 { background: linear-gradient(120deg, rgba(178, 111, 245, 0.8), rgba(243, 168, 195, 0.8)); }
+.gradient2 { background: linear-gradient(120deg, rgba(178, 111, 245, 0.6), rgba(243, 168, 195, 0.6)); }
 
 /* flex */
 .flex { display: flex; }
@@ -200,7 +199,7 @@ header .sign_in_log_in a:nth-child(1) { margin-right: 15px; }
 
 header .new_create:hover,
 header .new_create:active {
-  background: linear-gradient(90deg, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8));
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0.6), rgba(255, 255, 255, 0.6));
   color: rgba(178, 111, 245, 1);
   border: 1px rgba(178, 111, 245, 1) solid;
   transition: 0.5s ;
@@ -328,7 +327,7 @@ a.item_title  {
 }
 .dl_table dd { 
   width: calc(100% - 150px);
-  border-bottom: 1px rgba(124, 201, 224 1) solid;
+  border-bottom: 1px rgba(124, 201, 224, 1) solid;
 }
 
 
@@ -336,8 +335,13 @@ a.item_title  {
   #pc { display: none; }
   #sp { display: block; }
 
+  .nav_grid { 
+    position: fixed;
+  }
+
   .wrapper {
     width: 80vw;
+    margin: 70px auto 100px;
   }
   .list_column {
     width: calc((100% - 50px)/2);
@@ -365,11 +369,11 @@ a.item_title  {
   .sp_nav {
     width: 300px;
     position: absolute;
-    top: 70px;
+    top: 0;
     right: 0;
     /*right: -500px;*/
       display: none;
-    background-color: rgba(251, 220, 220, .9);
+    background-color: rgba(251, 247, 255, .9);
     color: rgba(178, 111, 245, 1);
     transition: 0.5s;
     }
