@@ -380,8 +380,9 @@ a.item_title  {
 
   .wrapper {
     width: 80vw;
-    margin: 70px auto 100px;
+    padding: 70px 0100px;
   }
+
   .list_column {
     width: calc((100% - 50px)/2);
   }
@@ -470,8 +471,9 @@ a.item_title  {
   .sign_up {display: none;}
   .wrapper {
     width: 90vw;
-    padding-bottom: 50px;
+    padding:50px 0 50px;
   }
+
   .container {
     width: 90vw;
   }

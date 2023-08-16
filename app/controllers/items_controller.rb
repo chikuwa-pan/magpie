@@ -2,7 +2,7 @@ class ItemsController < ApplicationController
   before_action :authenticate_user!, only: [:new, :create]
 
     def index
-      @items = Item.order(created_at: :desc).limit(10) # アイテム一覧の取得
+      @items = Item.order(created_at: :desc).page(params[:page]).per(12) # アイテム一覧の取得
       @tag_list=Tag.all
     end
   
@@ -103,7 +103,7 @@ class ItemsController < ApplicationController
 
     def search
       if params[:search].present?
-        @search_results = Item.search(params[:search]).order(created_at: :desc)
+        @search_results = Item.search(params[:search]).order(created_at: :desc).page(params[:page]).per(12)
         logger.debug "Search Results in Search Action: #{@search_results}"
       end
     end
@@ -114,7 +114,7 @@ class ItemsController < ApplicationController
       # 検索されたタグを受け取る
       @tag = Tag.find(params[:tag_id])
       # 検索されたタグに紐づく投稿を表示
-      @items = @tag.items.order(created_at: :desc)
+      @items = @tag.items.order(created_at: :desc).page(params[:page]).per(12)
     end
 
     private

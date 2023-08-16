@@ -8,6 +8,8 @@
                 <%= render partial: "item", locals: { item: item } %>
               <% end %>
             </div>
+
+            <%= paginate @items %>
       </div>
     </div>
   <% else %>
@@ -29,3 +31,21 @@
     </div>
   <% end %>
 </div>
+
+
+
+<nav class="pagination" role="navigation" aria-label="pager">
+  <span class="page current">1</span>
+
+  <span class="page">
+    <a rel="next" href="/search_tag?page=2&amp;tag_id=18">2</a>
+  </span>
+
+  <span class="next">
+    <a rel="next" href="/search_tag?page=2&amp;tag_id=18">Next ›</a>
+  </span>
+
+  <span class="last">
+    <a href="/search_tag?page=2&amp;tag_id=18">Last »</a>
+  </span>
+</nav>
