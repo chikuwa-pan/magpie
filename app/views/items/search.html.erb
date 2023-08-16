@@ -7,6 +7,7 @@
             <% @search_results.each do |item| %>
               <%= render partial: "item", locals: { item: item } %>
             <% end %>
+            <%= paginate @search_results %>
           <% else %>
           <p>該当するアイテムはありません。</p>
           <% end %>

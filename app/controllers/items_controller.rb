@@ -103,7 +103,7 @@ class ItemsController < ApplicationController
 
     def search
       if params[:search].present?
-        @search_results = Item.search(params[:search]).order(created_at: :desc)
+        @search_results = Item.search(params[:search]).order(created_at: :desc).page(params[:page]).per(12)
         logger.debug "Search Results in Search Action: #{@search_results}"
       end
     end
