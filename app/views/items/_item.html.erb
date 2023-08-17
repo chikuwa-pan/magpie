@@ -1,8 +1,8 @@
   <div class="list_column">
     <div class="list_image_box">
-      <% if item.image.attached? %>
+      <% if item.images.attached? %>
         <%= link_to item_path(item) do %>
-          <%= image_tag item.image, class: "item-box-img" %>
+          <%= image_tag item.images[0], class: "item-box-img" %>
         <% end %>
       <% end %>
     </div>

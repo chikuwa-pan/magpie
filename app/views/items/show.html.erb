@@ -3,8 +3,13 @@
 
   <div class="container">
     <div class="details_image_box">
-      <%= image_tag @item.image.variant(resize: '600x600'), class: "item-box-img" if @item.image.attached? %>
+      <%= image_tag @item.images[0].variant(resize: '600x600'), class: "item-box-img" if @item.images.attached? && @item.images[0] %>
+      <%= image_tag @item.images[1], class: "item-box-img" if @item.images.attached? && @item.images[1] %>
+      <%= image_tag @item.images[2], class: "item-box-img" if @item.images.attached? && @item.images[2] %>
+      <%= image_tag @item.images[3], class: "item-box-img" if @item.images.attached? && @item.images[3] %>
+      <%= image_tag @item.images[4], class: "item-box-img" if @item.images.attached? && @item.images[4] %>
     </div>
+
 
         <div class="tag_list">
           <!-- アイテムに関連するタグを取得 -->

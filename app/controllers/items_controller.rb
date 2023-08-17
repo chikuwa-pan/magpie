@@ -26,7 +26,7 @@ class ItemsController < ApplicationController
           memo: @item_tag.memo
         )
         
-        @item.image.attach(@item_tag.image)  # 画像をアタッチ
+        @item.images.attach(@item_tag.images)  # 画像をアタッチ
 
         tag_names = @item_tag.tag_name.split(',').map(&:strip)
         tag_names.each do |tag_name|
@@ -127,7 +127,7 @@ class ItemsController < ApplicationController
                                       :route, 
                                       :get_date, 
                                       :memo, 
-                                      :image,
-                                      :tag_name)
+                                      :tag_name,
+                                      {images: []})
     end
   end

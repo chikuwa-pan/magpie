@@ -6,9 +6,9 @@
   <%= form_with(model: @item_tag, url: items_path, local: true, id: 'item_form') do |f| %>
     <div class="field image-field">
       <div id="previews"></div>
+      <div class="click-upload">
         <p>画像</p>
-        <%# input type="file" name="item[image]" id="item-image" %>
-        <%= f.file_field :image, id: 'item_image' %>
+        <%= f.file_field :images, name: 'item_tag[images][]', data: {index: 0}, id: 'item_images' %>
     </div>
 
     <div class="field">
