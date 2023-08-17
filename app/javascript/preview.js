@@ -24,7 +24,7 @@ document.addEventListener('turbo:load', function(){
     // 削除ボタンを生成
     const deleteButton = document.createElement("div");
     deleteButton.setAttribute("class", "image-delete-button");
-    deleteButton.innerText = "削除";
+    deleteButton.innerText = "×";
 
     // 削除ボタンをクリックしたらプレビューとfile_fieldを削除させる
     deleteButton.addEventListener("click", () => deleteImage(dataIndex));
