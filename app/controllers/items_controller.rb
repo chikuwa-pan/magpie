@@ -62,7 +62,6 @@ class ItemsController < ApplicationController
       @item = Item.find(params[:id])
       @item_tag = ItemTag.new(item_tag_params)
 
-      #binding.pry
         if @item_tag.valid?
           @item.tags.destroy_all
           if @item_tag.tag_name.present?
@@ -85,7 +84,7 @@ class ItemsController < ApplicationController
               get_date: @item_tag.get_date,
               memo: @item_tag.memo
             )
-            redirect_to items_path
+            redirect_to item_path(@item.id)
           else
             render :edit
           end
