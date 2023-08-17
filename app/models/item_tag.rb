@@ -1,5 +1,6 @@
 class ItemTag
   include ActiveModel::Model
+  include ActiveModel::Attributes
   attr_accessor :name, 
                 :condition_id, 
                 :rarity_id, 
@@ -11,8 +12,8 @@ class ItemTag
                 :images,
                 :tag_name
 
+
   validates :name, presence: true
-  validates :images, length: { minimum: 1, maximum: 5, message: "は1枚以上5枚以下にしてください" }
 
   def save
     tag_names = tag_name.split(',').map(&:strip)

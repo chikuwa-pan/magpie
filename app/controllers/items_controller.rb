@@ -11,7 +11,6 @@ class ItemsController < ApplicationController
     end
   
     def create
-      Rails.logger.info("create action started")
       @item_tag = ItemTag.new(item_tag_params)
       if @item_tag.valid?
 
@@ -63,6 +62,7 @@ class ItemsController < ApplicationController
       @item = Item.find(params[:id])
       @item_tag = ItemTag.new(item_tag_params)
 
+      #binding.pry
         if @item_tag.valid?
           @item.tags.destroy_all
           if @item_tag.tag_name.present?
@@ -75,7 +75,6 @@ class ItemsController < ApplicationController
               Tagging.create(item: @item, tag: tag) #Tagging モデルに新しいレコードを作成します。item カラムには @item インスタンスを、tag カラムには tag インスタンスを指定します。これにより、アイテムとタグの関連付けが行われます。
             end
           end
-
             if @item.update(
               name: @item_tag.name,
               condition_id: @item_tag.condition_id,
