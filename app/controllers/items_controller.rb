@@ -11,7 +11,6 @@ class ItemsController < ApplicationController
     end
   
     def create
-      Rails.logger.info("create action started")
       @item_tag = ItemTag.new(item_tag_params)
       if @item_tag.valid?
 
@@ -26,7 +25,7 @@ class ItemsController < ApplicationController
           memo: @item_tag.memo
         )
         
-        @item.image.attach(@item_tag.image)  # 画像をアタッチ
+        @item.images.attach(@item_tag.images)  # 画像をアタッチ
 
         tag_names = @item_tag.tag_name.split(',').map(&:strip)
         tag_names.each do |tag_name|
@@ -75,7 +74,6 @@ class ItemsController < ApplicationController
               Tagging.create(item: @item, tag: tag) #Tagging モデルに新しいレコードを作成します。item カラムには @item インスタンスを、tag カラムには tag インスタンスを指定します。これにより、アイテムとタグの関連付けが行われます。
             end
           end
-
             if @item.update(
               name: @item_tag.name,
               condition_id: @item_tag.condition_id,
@@ -86,7 +84,7 @@ class ItemsController < ApplicationController
               get_date: @item_tag.get_date,
               memo: @item_tag.memo
             )
-            redirect_to items_path
+            redirect_to item_path(@item.id)
           else
             render :edit
           end
@@ -127,7 +125,7 @@ class ItemsController < ApplicationController
                                       :route, 
                                       :get_date, 
                                       :memo, 
-                                      :image,
-                                      :tag_name)
+                                      :tag_name,
+                                      {images: []})
     end
   end

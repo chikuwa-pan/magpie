@@ -1,5 +1,6 @@
 class ItemTag
   include ActiveModel::Model
+  include ActiveModel::Attributes
   attr_accessor :name, 
                 :condition_id, 
                 :rarity_id, 
@@ -8,8 +9,9 @@ class ItemTag
                 :route, 
                 :get_date, 
                 :memo, 
-                :image,
+                :images,
                 :tag_name
+
 
   validates :name, presence: true
 
