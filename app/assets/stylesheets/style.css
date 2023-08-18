@@ -3,12 +3,12 @@ rgba(251, 78, 78, 1) main color
 rgba(211, 184, 255, 1) sus color
 */
 
-body {
+/*body {
   height: 100vh;
   background-color: #fff;
   color: #444;
   font-family: 'Quicksand','M PLUS Rounded 1c', sans-serif;
-}
+}*/
 
 /* z-index */
 body { position: relative; z-index: 0; }

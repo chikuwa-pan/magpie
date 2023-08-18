@@ -35,6 +35,10 @@ html {
 
 body {
   margin: 0;
+  height: 100vh;
+  background-color: #fff;
+  color: #444;
+  font-family: 'Quicksand','M PLUS Rounded 1c', sans-serif;
 }
 
 /**
