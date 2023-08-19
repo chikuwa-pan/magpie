@@ -2,8 +2,8 @@
   <% if user_signed_in? %>
     <div class="bg_fff">
       <div class="wrapper">
-        <h2 class="title flex flex_center">New arrival</h2>
-            <div class="flex flex_wrap flex_start">
+        <h2 class="page__title">New arrival</h2>
+            <div class="itemList__container">
               <% @items.each do |item| %>
                 <%= render partial: "item", locals: { item: item } %>
               <% end %>
@@ -13,20 +13,24 @@
       </div>
     </div>
   <% else %>
-    <div class="vh100">
-      <h2><%= image_tag "catch01.png" %></h2>
-
-      <div class="item_btn">
-        <%= link_to new_user_registration_path, class: "btn flex flex_center" do %>
-          <span class="material-symbols-rounded">person_add</span>
-          <span>新規登録</span>
-        <% end %>
+    <div class="top-page--not-login">
+      <div class="top-page__box">
+        <h2><%= image_tag "catch01.png", class: "top-page__catch top-page__catch--main" %></h2>
       </div>
 
-      <div class="flex flex_between catch">
-        <div><%= image_tag "catch02.png" %></div>
-        <div><%= image_tag "catch03.png" %></div>
-        <div><%= image_tag "catch04.png" %></div>
+      <div class="top-page__box">
+        <div class="top-page-not-login__button--sign-up">
+          <%= link_to new_user_registration_path do %>
+            <span class="material-symbols-rounded main__button--name">person_add</span>
+            <span class="main__button--name">新規登録</span>
+          <% end %>
+        </div>
+      </div>
+
+      <div class="top-page__box box__catch-sub">
+        <%= image_tag "catch02.png", class: "top-page__catch--sub"  %>
+        <%= image_tag "catch03.png", class: "top-page__catch--sub"  %>
+        <%= image_tag "catch04.png", class: "top-page__catch--sub"  %>
       </div>
     </div>
   <% end %>

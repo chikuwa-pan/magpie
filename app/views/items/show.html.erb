@@ -1,32 +1,32 @@
 <div class="wrapper">
-  <h2 class="title flex flex_center"><%= @item.name %></h2>
+  <h2 class="page__title"><%= @item.name %></h2>
 
   <div class="container">
-    <div class="details_image_box flex flex_column ">
-      <div class="image_main flex flex_center">
-        <%= image_tag @item.images[0].variant(resize: '600x600'), class: "item_box_img" if @item.images.attached? && @item.images[0] %>
+    <div class="box__images--detail">
+      <div class="box__images __image--main">
+        <%= image_tag @item.images[0].variant(resize: '600x600'), class: "box__image" if @item.images.attached? && @item.images[0] %>
       </div>
-      <div class="image_thums flex flex_wrap flex_start">
-        <div class="image_thum">
-          <%= image_tag @item.images[0], class: "item_box_img" if @item.images.attached? && @item.images[0] %>
+      <div class="__image--thumbnails">
+        <div class="__image--thumbnail">
+          <%= image_tag @item.images[0], class: "box__image" if @item.images.attached? && @item.images[0] %>
         </div>
-        <div class="image_thum">
-          <%= image_tag @item.images[1], class: "item_box_img" if @item.images.attached? && @item.images[1] %>
+        <div class="__image--thumbnail">
+          <%= image_tag @item.images[1], class: "box__image" if @item.images.attached? && @item.images[1] %>
         </div>
-        <div class="image_thum">
-          <%= image_tag @item.images[2], class: "item_box_img" if @item.images.attached? && @item.images[2] %>
+        <div class="__image--thumbnail">
+          <%= image_tag @item.images[2], class: "box__image" if @item.images.attached? && @item.images[2] %>
         </div>
-        <div class="image_thum">
-          <%= image_tag @item.images[3], class: "item_box_img" if @item.images.attached? && @item.images[3] %>
+        <div class="__image--thumbnail">
+          <%= image_tag @item.images[3], class: "box__image" if @item.images.attached? && @item.images[3] %>
         </div>
-        <div class="image_thum">
-          <%= image_tag @item.images[4], class: "item_box_img" if @item.images.attached? && @item.images[4] %>
+        <div class="__image--thumbnail">
+          <%= image_tag @item.images[4], class: "box__image" if @item.images.attached? && @item.images[4] %>
         </div>
       </div>
     </div>
 
 
-        <div class="tag_list">
+        <div class="item__tag-list">
           <!-- アイテムに関連するタグを取得 -->
           <% @tag_list = @item.tags %>
           <!--タグリスト-->
@@ -36,13 +36,13 @@
           <% end %>
         </div>
 
-        <dl class="dl_table flex flex_wrap">
-          <dt>なまえ</dt>
-            <dd>
+        <dl class="details__table">
+          <dt class="table__header">なまえ</dt>
+            <dd class="table__data">
               <%= @item.name %>
             </dd>
-          <dt>コンディション</dt>
-            <dd>
+          <dt class="table__header">コンディション</dt>
+            <dd class="table__data">
               <% if @item.condition_id.present? %>
                 <%= Condition.find(@item.condition_id).name %>
               <% else %>
@@ -50,8 +50,8 @@
               <% end %>
             </dd>
           
-          <dt>レア度</dt>
-            <dd>
+          <dt class="table__header">レア度</dt>
+            <dd class="table__data">
               <% if @item.rarity_id.present? %>
                 <%= Rarity.find(@item.rarity_id).name %>
               <% else %>
@@ -59,8 +59,8 @@
               <% end %>
             </dd>
           
-          <dt>型番</dt>
-            <dd>
+          <dt class="table__header">型番</dt>
+            <dd class="table__data">
             <% if @item.product.present? %>
               <%= @item.product %>
             <% else %>
@@ -68,8 +68,8 @@
             <% end %>
             </dd>
           
-          <dt>発売時期</dt>
-            <dd>
+          <dt class="table__header">発売時期</dt>
+            <dd class="table__data">
             <% if @item.release.present? %>
               <%= @item.release %>
             <% else %>
@@ -77,8 +77,8 @@
             <% end %>
             </dd>
           
-          <dt>入手ルート</dt>
-            <dd>
+          <dt class="table__header">入手ルート</dt>
+            <dd class="table__data">
               <% if @item.route.present? %>
                 <%= @item.route %>
               <% else %>
@@ -86,8 +86,8 @@
               <% end %>
             </dd>
           
-          <dt>入手時期</dt>
-            <dd>
+          <dt class="table__header">入手時期</dt>
+            <dd class="table__data">
               <% if @item.get_date.present? %>
                 <%= @item.get_date %>
               <% else %>
@@ -95,26 +95,26 @@
               <% end %>
             </dd>
           
-          <dt>memo</dt>
-            <dd>
+          <dt class="table__header">memo</dt>
+            <dd class="table__data">
               <% if @item.memo.present? %>
                 <%= @item.memo %>
               <% end %>
             </dd>
         </dl>
 
-      <div class="item_btn btn_row">
-        <%= link_to edit_item_path(@item.id), class: :item_btn do %>
-          <span>編集</span>
-          <span class="material-symbols-rounded">edit</span>
+      <div class="button main__button">
+        <%= link_to edit_item_path(@item.id) do %>
+          <span class="material-symbols-rounded main__button--name">edit</span>
+          <span class="main__button--name">編集</span>
         <% end %>
-        <%= link_to item_path(@item.id), data: { turbo_method: :delete }, class: :item_btn do %>
-          <span>削除</span>
-          <span class="material-symbols-rounded">delete</span>
+        <%= link_to item_path(@item.id), data: { turbo_method: :delete } do %>
+          <span class="material-symbols-rounded main__button--name">delete</span>
+          <span class="main__button--name">削除</span>
         <% end%>
-        <%= link_to root_path, class: :item_btn do %>
-          <span>もどる</span>
-          <span class="material-symbols-rounded">undo</span>
+        <%= link_to root_path do %>
+          <span class="material-symbols-rounded main__button--name">undo</span>
+          <span class="main__button--name">もどる</span>
         <% end%>
       </div>
   </div>

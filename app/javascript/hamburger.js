@@ -1,4 +1,4 @@
-const MenuContainer = document.querySelector('.hamburger');
+const MenuContainer = document.querySelector('.header__hamburger');
 const MenuOpen = document.querySelector('.menu_open');
 const MenuClose = document.querySelector('.menu_close');
 

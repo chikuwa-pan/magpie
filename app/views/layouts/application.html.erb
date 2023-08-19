@@ -15,134 +15,126 @@
   </head>
 
   <body>
-    <header class="nav_grid gradient1" id="pc">
-      <h1 class="title flex flex_center">
+    <header class="header__grid gradient3color" id="pc">
+      <h1 class="header__main-title">
         <%#= link_to image_tag("logo.png", class:"logo"), "/" %>
-        <%= link_to "/", class: "flex flex_center" do %>
-          <span class="material-symbols-rounded">cruelty_free</span>
-          <span>Magpie</span>
+        <%= link_to "/" do %>
+          <span class="material-symbols-rounded main__button--name">cruelty_free</span>
+          <span class="main__button--name">Magpie</span>
         <% end %>
       </h1>
 
-      <div class="grid_right flex flex_row flex_end">
+      <div class="header__grid--right">
         <% if user_signed_in? %>
-          <div class="flex flex_center">
-            <div class="view_all btn">
-              <%= link_to "/", class: "flex flex_center" do %>
-                <span class="material-symbols-rounded">apps</span>View collection
-              <% end %>
-            </div>
-          </div>
-
-          <div class="flex flex_center">
-            <%= form_with(url: search_items_path, local: true, method: :get, class: "flex flex_center") do |form| %>
-              <%= form.text_field :search, placeholder: "検索ワード", class: "search_input" %>
-              <%= form.submit "Search", class: "btn" %>
+          <div class="header__menu">
+            <%= link_to "/", class: "button header__button" do %>
+              <span class="material-symbols-rounded main__button--name">apps</span>
+              <span class="main__button--name">View collection
             <% end %>
           </div>
 
-          <div class="flex flex_center flex_row">
-            <div class="user_login">
-              <h2>ようこそ、<%= current_user.nickname %>さん！</h2>
-                <div class="logout btn">
+          <div class="header__menu">
+            <%= form_with(url: search_items_path, local: true, method: :get, class: "header__form--search") do |form| %>
+              <%= form.text_field :search, placeholder: "検索ワード", class: "header__search-input" %>
+              <%= form.submit "Search", class: "button header__button" %>
+            <% end %>
+          </div>
+
+          <div class="header__menu header__menu_logout">
+              <h2 class="header__message main__button--small">ようこそ、<%= current_user.nickname %>さん！</h2>
+                <div class="button header__button ">
                   <%= link_to destroy_user_session_path, data: { turbo_method: :delete } do %>
-                    <span class="material-symbols-rounded">logout</span>
-                    <span>Log out</span>
+                    <span class="main__button--small material-symbols-rounded main__button--name">logout</span>
+                    <span class="main__button--small main__button--name">Log out</span>
                   <% end %>
                 </div>
             </div>
-            <% unless current_page?(new_item_path) %>
-              <%= link_to new_item_path, class: "new_create flex flex_center flex_column gradient2" do %>
-                <span class="material-symbols-rounded">add</span>
-                <span class='purchase-btn-text'>登録する</span>
-              <% end %>
-            <% end %>
+
           </div>
 
         <% else %>
-            <div class="sign_in_log_in flex flex_center flex_end">
-              <%= link_to new_user_session_path, class: "btn flex flex_center" do %>
-                <span class="material-symbols-rounded">login</span>
-                <span>Log in</span>
+            <div class="header__menu header__menu_login">
+              <%= link_to new_user_session_path, class: "button header__button" do %>
+                <span class="material-symbols-rounded main__button--name">login</span>
+                <span class="main__button--name">Log in</span>
               <% end %>
-              <%= link_to new_user_registration_path, class: "btn flex flex_center" do %>
-                <span class="material-symbols-rounded">person_add</span>
-                <span>Sign up</span>
+              <%= link_to new_user_registration_path, class: "button header__button" do %>
+                <span class="material-symbols-rounded main__button--name">person_add</span>
+                <span class="main__button--name">Sign up</span>
               <% end %>
             </div>
         <% end %>
       </div>
     </header><!--//pc-->
+    <% unless current_page?(new_item_path) %>
+      <%= link_to new_item_path, class: "__item-registration gradient2color" do %>
+        <span class="material-symbols-rounded main__button--name">add</span>
+        <span>登録する</span>
+      <% end %>
+    <% end %>
 
     <div id="sp">
       <% if user_signed_in? %>
-        <header class="nav_grid gradient1">
-          <h1 class="title flex flex_center">
+        <header class="header__grid gradient3color">
+          <h1 class="header__main-title">
             <%#= link_to image_tag("logo.png", class:"logo"), "/" %>
-            <%= link_to "/", class: "flex flex_center" do %>
-              <span class="material-symbols-rounded">cruelty_free</span>
-              <span>Magpie</span>
+            <%= link_to "/" do %>
+              <span class="material-symbols-rounded main__button--name">cruelty_free</span>
+              <span class="main__button--name">Magpie</span>
             <% end %>
           </h1>
-          <div class="grid_right flex flex_row flex_end">
-            <div class="hamburger">
+          <div class="header__grid--right">
+            <div class="header__hamburger">
               <span class="material-symbols-rounded menu_open">menu</span>
               <span class="material-symbols-rounded menu_close">close</span>
             </div>
           </div>
-
-          <% unless current_page?(new_item_path) %>
-            <%= link_to new_item_path, class: "new_create flex flex_center flex_column gradient2" do %>
-              <span class="material-symbols-rounded">add</span>
-              <span class='purchase-btn-text'>登録する</span>
-            <% end %>
-          <% end %>
         </header>
         <ul class="sp_nav">
           <li>ようこそ、<%= current_user.nickname %>さん！</li>
           <li>
-            <%= link_to "/", class: "flex flex_center" do %>
-              <span class="material-symbols-rounded">apps</span>
-              <span>View collection</span>
+            <%= link_to "/", class: "header__menu--centering" do %>
+              <span class="material-symbols-rounded main__button--name">apps</span>
+              <span class="main__button--name">View collection</span>
             <% end %>
           </li>
           <li>
             <%= form_with(url: search_items_path, local: true, method: :get) do |form| %>
-              <div class="flex flex_center">
-                <span class="material-symbols-rounded">search</span>
-                <span>Search</span>
+              <div class="header__menu--centering">
+                <span class="material-symbols-rounded main__button--name">search</span>
+                <span class="main__button--name">Search</span>
               </div>
-                <%= form.text_field :search, placeholder: "検索ワード", class: "search_input" %>
-              <p class="sp_nav_btn"><%= form.submit "検索" %></p>
+                <%= form.text_field :search, placeholder: "検索ワード", class: "header__search-input" %>
+              <p class="sp_nav_btn button header__button"><%= form.submit "検索" %></p>
             <% end %>
           </li>
           <li>
             <%= link_to destroy_user_session_path, data: { turbo_method: :delete }, class: "flex flex_center" do %>
-              <span class="material-symbols-rounded">logout</span>
-              <span>Log out</span>
+              <span class="material-symbols-rounded main__button--name">logout</span>
+              <span class="main__button--name">Log out</span>
             <% end %>
           </li>
         </ul>
 
       <% else %>
-        <header class="nav_grid gradient1">
-          <h1 class="title flex flex_center">
+        <header class="header__grid gradient3color">
+          <h1 class="header__main-title">
             <%#= link_to image_tag("logo.png", class:"logo"), "/" %>
-            <%= link_to "/", class: "flex flex_center" do %>
-              <span class="material-symbols-rounded">cruelty_free</span>
-              <span>Magpie</span>
+            <%= link_to "/" do %>
+              <span class="material-symbols-rounded main__button--name">cruelty_free</span>
+              <span class="main__button--name">Magpie</span>
             <% end %>
           </h1>
 
-          <div class="flex flex_center flex_end">
-            <div class="sign_in_log_in flex flex_center">
-              <%= link_to new_user_session_path, class: "btn flex flex_center" do %>
-                <span class="material-symbols-rounded">login</span>
-                <span>Log in</span>
+          <div class="header__menu--centering sign-in-or-login">
+            <div class="header__menu header__menu--centering">
+              <%= link_to new_user_session_path, class: "button header__button" do %>
+                <span class="material-symbols-rounded main__button--name">login</span>
+                <span class="main__button--name">Log in</span>
               <% end %>
-              <%= link_to new_user_registration_path, class: "btn flex flex_center sign_up" do %>
-                <span class="material-symbols-rounded">person_add</span>
-                <span>Sign up</span>
+              <%= link_to new_user_registration_path, class: "button header__button sp_hidden" do %>
+                <span class="material-symbols-rounded main__button--name">person_add</span>
+                <span class="main__button--name">Sign up</span>
               <% end %>
             </div>
           </div>
@@ -152,7 +144,7 @@
     </div><!--//sp-->
 
     <%= yield %>
-    <footer class="gradient1">
+    <footer class="footer gradient3color">
       <small>2023 marurun</small>
     </footer>
   </body>
