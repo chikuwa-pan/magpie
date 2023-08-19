@@ -1,68 +1,62 @@
-<div class="wrapper form">
-  <h2 class="title flex flex_center">編集する
-    <span class="material-symbols-rounded">edit</span>
+<div class="wrapper wrapper__form">
+  <h2 class="page__title">
+    <span class="material-symbols-rounded main__button--name">edit</span>
+    <span class="main__button--name">編集する</span>
   </h2>
 
   <%= form_with(model: @item_tag, url: item_path(@item), local: true, method: :patch, id: 'item_form') do |f| %>
-    <div class="field image-field">
-      <div id="previews"></div>
-      <div class="click-upload">
-        <p>画像</p>
-        <%= f.file_field :images, name: 'item_tag[images][]', data: {index: 0}, id: 'item_images' %>
+      <div class="field image-field">
+        <div id="previews"></div>
+        <div class="click-upload">
+          <p>画像</p>
+          <%= f.file_field :images, name: 'item_tag[images][]', data: {index: 0}, id: 'item_images' %>
+        </div>
       </div>
-    </div>
 
-    <div class="field">
-      <%#p class="field_title">名前</p%>
-      <%= f.label :name, "おなまえ" %>
-      <%= f.text_field :name, placeholder: "アイテム名", class:"form_input" %>
-    </div>
-    <div class="field">
-      <%#p class="field_title">タグ</p%>
-      <%= f.label :tag_name, "タグ" %>
-      <%= f.text_field :tag_name, placeholder: ",で区切って複数登録できます", class:"form_input" %>
-    </div>
-    <div class="field">
-      <p class="field_title">コンディション</p>
-      <%= f.collection_select(:condition_id, Condition.all, :id, :name, {}, {class:"form_input"}) %>
-    </div>
-    <div class="field">
-      <p class="field_title">レア度</p>
-      <%= f.collection_select(:rarity_id, Rarity.all, :id, :name, {}, {class:"form_input"}) %>
-    </div>
-    <div class="field">
-      <%#p class="field_title">型番</p%>
-      <%= f.label :product, "型番" %>
-      <%= f.text_field :product, placeholder: "ウ-33", class:"form_input" %>
-    </div>
-    <div class="field">
-      <%#p class="field_title">発売時期</p%>
-      <%= f.label :release, "発売時期" %>
-      <%= f.text_field :release, placeholder: "1999年ごろ", class:"form_input" %>
-    </div>
-    <div class="field">
-      <%#p class="field_title">入手ルート</p%>
-      <%= f.label :route, "入手ルート" %>
-      <%= f.text_field :route, placeholder: "リサイクルショップ", class:"form_input" %>
-    </div>
-    <div class="field">
-      <%#p class="field_title">入手時期</p%>
-      <%= f.label :get_date, "入手時期" %>
-      <%= f.text_field :get_date, placeholder: "2023年", class:"form_input" %>
-    </div>
-    <div class="field">
-      <%#p class="field_title">memo</p%>
-      <%= f.label :nemo, "Memo" %>
-      <%= f.text_area :memo, placeholder: "例:パッケージ傷あり", rows: "5", class:"form_input" %>
-    </div>
+      <div class="form__field">
+        <%= f.label :name, "おなまえ" %>
+        <%= f.text_field :name, placeholder: "アイテム名", class:"form__input form__input--round" %>
+      </div>
+      <div class="form__field">
+        <%= f.label :tag_name, "タグ" %>
+        <%= f.text_field :tag_name, placeholder: ",で区切って複数登録できます", class:"form__input form__input--round" %>
+      </div>
+      <div class="form__field">
+        <p class="field_title">コンディション</p>
+        <%= f.collection_select(:condition_id, Condition.all, :id, :name, {}, {class:"form__input form__input--square"}) %>
+      </div>
+      <div class="form__field">
+        <p class="field_title">レア度</p>
+        <%= f.collection_select(:rarity_id, Rarity.all, :id, :name, {}, {class:"form__input form__input--square"}) %>
+      </div>
+      <div class="form__field">
+        <%= f.label :product, "型番" %>
+        <%= f.text_field :product, placeholder: "ウ-33", class:"form__input form__input--round" %>
+      </div>
+      <div class="form__field">
+        <%= f.label :release, "発売時期" %>
+        <%= f.text_field :release, placeholder: "1999年ごろ", class:"form__input form__input--round" %>
+      </div>
+      <div class="form__field">
+        <%= f.label :route, "入手ルート" %>
+        <%= f.text_field :route, placeholder: "リサイクルショップ", class:"form__input form__input--round" %>
+      </div>
+      <div class="form__field">
+        <%= f.label :get_date, "入手時期" %>
+        <%= f.text_field :get_date, placeholder: "2023年", class:"form__input form__input--round" %>
+      </div>
+      <div class="form__field">
+        <%= f.label :nemo, "Memo" %>
+        <%= f.text_area :memo, placeholder: "例:パッケージ傷あり", rows: "5", class:"form__input form__input--square" %>
+      </div>
 
-    <div class="item_btn">
-      <%= f.submit "SAVE", class:"form_input" %>
-    </div>
-<% end %>
-
-
-  <div class="item_btn">
-    <%= link_to "戻る", item_path(@item), class: :item__btn %>
-  </div>
+      <div class="button main__button">
+        <%= f.submit "SAVE" %>
+      
+        <%= link_to item_path(@item.id), class:"" do %>
+          <span class="material-symbols-rounded main__button--name">undo</span>
+          <span class="main__button--name">もどる</span>
+        <% end%>
+      </div>
+    <% end %>
 </div>

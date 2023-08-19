@@ -1,15 +1,15 @@
-  <div class="list_column">
-    <div class="list_image_box">
+  <div class="main__item-list">
+    <div class="box__images box__images--list">
       <% if item.images.attached? %>
         <%= link_to item_path(item) do %>
-          <%= image_tag item.images[0], class: "item-box-img" %>
+          <%= image_tag item.images[0], class: "box__image" %>
         <% end %>
       <% end %>
     </div>
 
-    <%= link_to item.name, item_path(item), class: :item_title %>
+    <%= link_to item.name, item_path(item), class: :itemList__name %>
     
-    <div class="tag_list">
+    <div class="item__tag-list">
       <!-- アイテムに関連するタグを取得 -->
       <% @tag_list = item.tags %>
       <!--タグリスト-->

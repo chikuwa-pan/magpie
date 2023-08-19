@@ -1,8 +1,8 @@
 <div class="bg_image">
   <div class="bg_fff">
     <div class="wrapper">
-      <h2 class="title flex flex_center">検索結果</h2>
-        <div class="flex flex_wrap">
+      <h2 class="page__title">検索結果</h2>
+        <div class="itemList__container">
           <% if @search_results.present? %>
             <% @search_results.each do |item| %>
               <%= render partial: "item", locals: { item: item } %>
