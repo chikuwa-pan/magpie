@@ -4,23 +4,23 @@
   <div class="container">
     <div class="box__images--detail">
       <div class="box__images __image--main">
-        <%= image_tag @item.images[0].variant(resize: '600x600'), class: "box__image" if @item.images.attached? && @item.images[0] %>
+        <%= image_tag @item.images[0].variant(resize: '600x600'), class: "box__image", id: "mainimg" if @item.images.attached? && @item.images[0] %>
       </div>
       <div class="__image--thumbnails">
         <div class="__image--thumbnail">
-          <%= image_tag @item.images[0], class: "box__image" if @item.images.attached? && @item.images[0] %>
+          <%= image_tag @item.images[0], class: "box__image thumb" if @item.images.attached? && @item.images[0] %>
         </div>
         <div class="__image--thumbnail">
-          <%= image_tag @item.images[1], class: "box__image" if @item.images.attached? && @item.images[1] %>
+          <%= image_tag @item.images[1], class: "box__image thumb" if @item.images.attached? && @item.images[1] %>
         </div>
         <div class="__image--thumbnail">
-          <%= image_tag @item.images[2], class: "box__image" if @item.images.attached? && @item.images[2] %>
+          <%= image_tag @item.images[2], class: "box__image thumb" if @item.images.attached? && @item.images[2] %>
         </div>
         <div class="__image--thumbnail">
-          <%= image_tag @item.images[3], class: "box__image" if @item.images.attached? && @item.images[3] %>
+          <%= image_tag @item.images[3], class: "box__image thumb" if @item.images.attached? && @item.images[3] %>
         </div>
         <div class="__image--thumbnail">
-          <%= image_tag @item.images[4], class: "box__image" if @item.images.attached? && @item.images[4] %>
+          <%= image_tag @item.images[4], class: "box__image thumb" if @item.images.attached? && @item.images[4] %>
         </div>
       </div>
     </div>

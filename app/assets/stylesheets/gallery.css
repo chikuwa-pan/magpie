@@ -1,0 +1,4 @@
+.thumb:hover {
+  cursor: pointer;
+  opacity: .5;
+}
